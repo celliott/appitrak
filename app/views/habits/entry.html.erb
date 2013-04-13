@@ -1,0 +1,15 @@
+<%= error_messages_for(@habit) %>
+
+<div class="habit create">
+  <h1>New Habit</h1>
+<% @habits.each do |habit| %>
+  <%= form_for(:add, :url => {:action => 'add'}) do |f| %>
+    <%= f.hidden_field :habit, :value => habit.id %>
+  
+    <div class="form-buttons">
+      <%= submit_tag(habit.name) %>
+    </div>
+  
+  <% end %>
+<% end %>  
+</div>
