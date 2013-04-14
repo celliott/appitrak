@@ -17,6 +17,24 @@
   <% end %>
 </div>
 
+<% if (params[:action] != 'login') %>
+	<div class="main menu">
+	  <ul>
+	  <% if session[:user_id] %>
+	      <li>hello, <%= @user.first_name.downcase %></li>
+	  <% else %>
+	      <li><%= link_to("login", :controller => 'login') %></li>
+	      <li><%= link_to("sign up", :controller => 'signup') %></li>
+	  <% end %>
+	    <% if session[:user_id]%>
+	      <li><%= link_to("logout", :controller => 'logout') %></li>
+	    <% end %>     
+	    <li class="<%= "selected" if params[:controller] == "habits" %>"><%= link_to("habits", root_url) %></li>
+	        
+	  </ul> 
+	</div>
+<% end %>
+
 <%= yield %>
 
 </body>

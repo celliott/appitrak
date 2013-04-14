@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_filter :confirm_logged_in, :except => [:create, :login, :attempt_login, :logout]
+  before_filter :confirm_logged_in, :except => [:new, :create, :login, :attempt_login, :logout]
    
   def new
     @user = User.new
@@ -10,12 +10,13 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       session[:user_id] = @user.id
-      session[:user_email] = @user.email
+      session[:email] = @user.email
+      session[:name] = @user.name
       session[:first_name] = @user.first_name
-      session[:last_name] = @user.last_name
-      redirect_to root_url, notice: "Thank you for signing up #{@user.first_name}!"
+      flash[:notice] = "Thank you for signing up #{@user.first_name}!"
+      redirect_to root_url 
     else
-      render("create")
+      render("new")
     end
   end
   

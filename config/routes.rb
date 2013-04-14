@@ -5,7 +5,7 @@ Appitrak::Application.routes.draw do
   root :to => "habits#entry"
   match 'login', :to => 'access#login'
   match 'logout', :to => 'access#logout'
-  match 'signup', :to => 'users#create'
+  match 'signup', :to => 'users#new'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

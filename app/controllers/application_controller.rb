@@ -4,7 +4,10 @@ class ApplicationController < ActionController::Base
   protected
   
   def confirm_logged_in
-    unless session[:user_id]
+    if cookies[:user_id]
+      session[:user_id] = cookies.signed[:user_id]
+    end
+    unless session[:user_id] || cookies[:user_id]
       flash[:notice] = "Please log in."
       redirect_to(:controller => 'access', :action => 'login')
       return false # halts the before_filter

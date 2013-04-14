@@ -3,7 +3,13 @@ class HabitsController < ApplicationController
   before_filter :confirm_logged_in
   
   def entry
-    @habits = Habit.order("name ASC").find_all_by_user_id([0, session[:user_id]])
+    if cookies[:user_id]
+     user_id = cookies.signed[:user_id]
+    else
+      user_id = session[:user_id]
+    end
+    @habits = Habit.order("name ASC").find_all_by_user_id([0, user_id])
+    @user = User.find(user_id)
   end
   
   def new
@@ -22,6 +28,7 @@ class HabitsController < ApplicationController
   
   def add
     @habit = Habit.find(params[:add][:habit])
+    user_id = Digest::SHA256.hexdigest(cookies[:user_id])
     @habit.users << User.find(session[:user_id])
     flash[:notice] = "#{@habit.name} recorded!"
     redirect_to(:action => 'entry')

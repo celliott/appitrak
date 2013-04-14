@@ -15,8 +15,21 @@
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td><%= submit_tag("Log In") %></td>
+      <td><%= check_box(:remember_me, 'remember', :checked => true) %>
+          <%= label_tag(:remember_me) %>
+      </td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><%= submit_tag("Log In") %>
+          <% end %>
+          <%= button_to "Sign up", :controller => 'signup' %>
+      </td>
     </tr>
   </table>
-  <% end %>
 </div>
+
+<%= session[:user_id] %>
+<%= session[:user_email] %>
+<%= session[:first_name] %>
+<%= session[:last_name] %>

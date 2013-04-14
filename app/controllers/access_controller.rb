@@ -12,9 +12,9 @@ class AccessController < ApplicationController
      authorized_user = User.authenticate(params[:email], params[:pass])
      if authorized_user
        session[:user_id] = authorized_user.id
-       session[:email] = authorized_user.email
-       session[:name] = authorized_user.name
-       session[:first_name] = authorized_user.first_name
+       if params[:remember_me][:remember] == '1'
+         cookies.signed[:user_id] = { :value => authorized_user.id.to_s, :expires => 2.weeks.from_now }
+       end  
        flash[:notice] = "Welcome back #{authorized_user.first_name.capitalize}!"
        redirect_to root_url 
      else
@@ -24,11 +24,13 @@ class AccessController < ApplicationController
    end
 
    def logout
-     session[:user_id] = nil
-     session[:email] = nil
-     session[:name] = nil
-     flash[:notice] = "Goodbye #{session[:first_name].capitalize}."
-     session[:first_name] = nil
+     if session[:user_id]
+       session[:user_id] = nil       
+     end
+     if cookies[:user_id]
+       cookies[:user_id] = nil
+       cookies.delete :user_id 
+     end 
      redirect_to root_url
    end
 

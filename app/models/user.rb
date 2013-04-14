@@ -5,9 +5,7 @@ class User < ActiveRecord::Base
   
   has_many :habits_user
   has_many :habits, :through => :habits_user
-  
-  #attr_accessor :password
-  
+    
   EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
     
   #validates_uniqueness_of :email
@@ -33,19 +31,17 @@ class User < ActiveRecord::Base
     else
       return false
     end
-  end
+  end 
    
   private
   
   def create_password
-    # Whenever :password has a value hashing is needed
     unless password.blank?
       self.password = Digest::SHA256.hexdigest(password)
     end
   end
 
   def clear_password
-    # for security and b/c hashing is not needed
     self.password = nil
   end
   
