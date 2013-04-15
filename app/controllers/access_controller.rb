@@ -15,10 +15,10 @@ class AccessController < ApplicationController
        if params[:remember_me][:remember] == '1'
          cookies.signed[:user_id] = { :value => authorized_user.id.to_s, :expires => 2.weeks.from_now }
        end  
-       flash[:notice] = "Welcome back #{authorized_user.first_name.capitalize}!"
+       flash[:alert] = "Welcome back #{authorized_user.first_name.capitalize}!"
        redirect_to root_url 
      else
-       flash[:notice] = "Invalid username/password combination. "
+       flash[:error] = "Invalid username/password combination."
        redirect_to(:action => 'login')
      end
    end

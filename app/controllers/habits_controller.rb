@@ -2,7 +2,12 @@ class HabitsController < ApplicationController
   
   before_filter :confirm_logged_in
   
+  def show_menu
+    @show_menu  = true
+  end
+  
   def entry
+    show_menu 
     if cookies[:user_id]
      user_id = cookies.signed[:user_id]
     else

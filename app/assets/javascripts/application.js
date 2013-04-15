@@ -14,6 +14,26 @@
 //= require jquery_ujs
 //= require_tree .
 
+jQuery(document).ready(function() {
+  timer = setTimeout(fadeOut, 1500);
+  jQuery("#flashMessage").hide();
+  jQuery("#flashMessage").fadeIn(500);
+  
+});
+
+function fadeOut() {
+  jQuery("#flashMessage").fadeOut(500);
+}
+
+
+function loadContent() {
+  $('#load_content').click();
+  $('#content').hide();
+  $('#content').fadeIn(500);
+}
+
 $(document).ready(function() {
-  jQuery("#flashMessage").fadeOut(1000);
+	  $('#load_content').click();
+	  $('#content').hide();
+	  $('#content').fadeIn(500);
 });

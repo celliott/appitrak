@@ -8,34 +8,44 @@
 </head>
 <body>
 
-<div id="flashMessage">
-  <% if flash[:notice] %>
-      <p class="notice"><%= flash[:notice] %></p>
-    <% end %>
-    <% if flash[:error] %>
-      <p class="error"><%= flash[:error] %></p>
-  <% end %>
-</div>
-
-<% if (params[:action] != 'login') %>
+<%= link_to(root_url) do%>
+<div class="header"><p>appiTrak</p></div>
+<% end %>
+<% if @show_menu %>
 	<div class="main menu">
 	  <ul>
 	  <% if session[:user_id] %>
-	      <li>hello, <%= @user.first_name.downcase %></li>
+	      <li>hello, <%= @user.first_name.downcase %></li><li>:</li>
 	  <% else %>
-	      <li><%= link_to("login", :controller => 'login') %></li>
-	      <li><%= link_to("sign up", :controller => 'signup') %></li>
+	      <li><%= link_to("login", :controller => 'login') %></li><li>:</li>
+	      <li><%= link_to("sign up", :controller => 'signup') %></li><li>:</li>
 	  <% end %>
 	    <% if session[:user_id]%>
-	      <li><%= link_to("logout", :controller => 'logout') %></li>
+	      <li><%= link_to("logout", :controller => 'logout') %></li><li>:</li>
 	    <% end %>     
 	    <li class="<%= "selected" if params[:controller] == "habits" %>"><%= link_to("habits", root_url) %></li>
 	        
 	  </ul> 
 	</div>
 <% end %>
+<div id="flashContainer">
+	<div id="flashMessage">
+	  <% if flash[:notice] %>
+	      <p class="notice"><%= flash[:notice] %></p>
+	    <% end %>
+	  <% if flash[:error] %>
+	      <p class="error"><%= flash[:error] %></p>
+	  <% end %>
+	  <% if flash[:alert] %>
+	      <p class="alert"><%= flash[:alert] %></p>
+	  <% end %>
+	</div>
+</div>
+<div class="container">
+  <%= yield %>
 
-<%= yield %>
 
+
+</div>
 </body>
 </html>

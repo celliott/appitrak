@@ -1,7 +1,10 @@
 module ApplicationHelper
   
-  def error_messages_for( object )
-    render(:partial => 'shared/error_messages', :locals => {:object => object})
+  def display_error(field)
+    if @user.errors[field].any?
+        raw "#{field.to_s.tr("_", " ")} "+@user.errors[field].first+"<br>"
+    end
   end
+
 
 end

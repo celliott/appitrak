@@ -8,8 +8,7 @@ class User < ActiveRecord::Base
     
   EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
     
-  #validates_uniqueness_of :email
-  validates :password, :confirmation => true
+  validates :password, :presence => true, :confirmation => true
   validates :first_name, :presence => true, :length => { :maximum => 25 }
   validates :last_name, :presence => true, :length => { :maximum => 50 }
   validates :email, :presence => true, :uniqueness => true, :length => { :maximum => 100 }, 

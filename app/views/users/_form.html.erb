@@ -1,24 +1,24 @@
-<%= error_messages_for(@user) %>
-
-<table summary="User form fields">
+<div class="user_create">
   <div class="field">
-      <%= f.label :first_name %><br />
-      <%= f.text_field :first_name %>
-    </div>
-    <div class="field">
-      <%= f.label :last_name %><br />
-      <%= f.text_field :last_name %>
-    </div>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.text_field :email %>
-    </div>
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password %>
-    </div>
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %>
-    </div>
-</table>
+    <%= display_error(:first_name) %>
+    <%= f.text_field :first_name, :placeholder => 'first name' %>  
+  </div>
+  <div class="field">
+    <%= display_error(:last_name) %>
+    <%= f.text_field :last_name, :placeholder => 'last name' %>
+  </div>
+  <div class="field">
+    <%= display_error(:email) %>
+    <%= f.text_field :email, :placeholder => 'email' %>
+  </div>
+  <div class="field">
+    <%= display_error(:password) %>
+    <%= f.password_field :password, :placeholder => 'password' %>
+  </div>
+  <div class="field">
+    <%= display_error(:password_confirmation) %>
+    <%= f.password_field :password_confirmation, :placeholder => 'confirm password' %>
+  </div>
+</div>
+
+<br/>

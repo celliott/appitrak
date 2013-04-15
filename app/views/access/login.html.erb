@@ -1,35 +1,17 @@
-<div class="main login">
-  <h2>Login</h2>
-</div>
-
 <div class="login">
-  <%= form_tag(:action => 'attempt_login') do %>
-  <table>
-    <tr>
-      <td><%= label_tag(:email) %></td>
-      <td><%= text_field_tag(:email) %></td>
-    </tr>
-    <tr>
-      <td><%= label_tag(:password) %></td>
-      <td><%= password_field_tag(:pass) %></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td><%= check_box(:remember_me, 'remember', :checked => true) %>
-          <%= label_tag(:remember_me) %>
-      </td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td><%= submit_tag("Log In") %>
-          <% end %>
-          <%= button_to "Sign up", :controller => 'signup' %>
-      </td>
-    </tr>
-  </table>
-</div>
-
-<%= session[:user_id] %>
-<%= session[:user_email] %>
-<%= session[:first_name] %>
-<%= session[:last_name] %>
+  <%= form_tag(:action => 'attempt_login', :authenticity_token => false) do %>
+   <div><%= text_field_tag 'email', nil, :placeholder => 'email' %></div>
+   <div><%= password_field_tag 'pass', nil, :placeholder => 'password' %></div>
+   <div class="checkbox">
+   <%= check_box 'remember_me', 'remember', :checked => true, :id => 'remember_me' %>
+     <label for="remember_me">remember me</label>  
+   </div>
+   <div><%= submit_tag("Log In") %>
+        <% end %>
+        <div class="signup">
+          <%= link_to "Sign up", {:controller => 'signup'}, {:class => 'button'}%>
+        </div>
+   </div>
+  </div>
+  
+  

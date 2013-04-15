@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
       session[:user_id] = cookies.signed[:user_id]
     end
     unless session[:user_id] || cookies[:user_id]
-      flash[:notice] = "Please log in."
+      flash[:error] = "Please log in."
       redirect_to(:controller => 'access', :action => 'login')
       return false # halts the before_filter
     else
