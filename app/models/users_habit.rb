@@ -1,4 +1,4 @@
-class HabitsUser < ActiveRecord::Base
+class UsersHabit < ActiveRecord::Base
   #attr_accessible :email, :password
   
   belongs_to :habit

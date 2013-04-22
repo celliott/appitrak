@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.datepicker
+//= require raphael
+//= require morris
 //= require_tree .
 
 jQuery(document).ready(function() {
@@ -25,15 +28,6 @@ function fadeOut() {
   jQuery("#flashMessage").fadeOut(500);
 }
 
-
-function loadContent() {
-  $('#load_content').click();
-  $('#content').hide();
-  $('#content').fadeIn(500);
-}
-
-$(document).ready(function() {
-	  $('#load_content').click();
-	  $('#content').hide();
-	  $('#content').fadeIn(500);
+$(window).bind('resize',function() {
+  $('#daily_charts').click();
 });

@@ -1,6 +1,21 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  def show_menu
+    @show_menu  = true
+    @user = User.find(current_user_id)
+  end
+  
+  def current_user_id
+    if cookies[:user_id]
+      @current_user_id = cookies.signed[:user_id]
+      current_user_id = cookies.signed[:user_id]
+    else
+      @current_user_id = session[:user_id]
+      current_user_id = session[:user_id]
+    end
+  end
+  
   protected
   
   def confirm_logged_in

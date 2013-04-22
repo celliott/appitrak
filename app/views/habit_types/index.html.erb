@@ -1,0 +1,17 @@
+<div class="habit_types">
+	<div class="new_habit">
+	  <%= form_for(:habit_type, :url => {:action => 'create'}, remote: true)  do |f| %>
+      <%= render(:partial => 'form', :locals => {:f => f} ) %>
+      <div><%= submit_tag "create", :id => "add_habit_type" %></div>
+    <% end %>
+	</div>
+	<br />
+	<h2>select your habits</h2>
+	<br />
+  <%= link_to "", 
+      {:action => 'habit_types'}, 
+      id: "habit_types", 
+      remote: true 
+%>
+  <div class="habit_types_container"></div>
+</div>

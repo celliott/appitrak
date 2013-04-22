@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require jquery.ui.datepicker
  *= require_tree .
  */
 
@@ -18,6 +19,7 @@
 }
 
 body {
+  min-width: 420px;
 	font-family: Arial, Helvetica, sans-serif;
 	width: 100%;
 	position: absolute;
@@ -29,7 +31,7 @@ body {
 }
 
 .container{
-  width:80%;
+  width:90%;
   margin: 0 auto 0 auto;
 }
 
@@ -44,46 +46,109 @@ body {
 	background: #505050 url('/images/clock.png') no-repeat center;
 }
 
+h2 {
+  color: #cd1d1d;
+  font-weight: normal;
+  font-size: 160%;
+}
+
 a {
   text-decoration: none;
   color: #787878;
 }
 
 a:hover {
-  color: #505050;
+  color: #cd1d1d;
 }
-
 
 
 /* navigation */
 
 .menu {
+  display: block;
   margin: 20px 0 0 20px;
+  cursor: pointer;
 }
 
 .menu ul li{
-  font-size: 120%;
-  margin: 0 auto 0 auto;
+  font-size: 130%;
   display: inline;
-  padding: 0 10px 0 0;
+  margin: 0 2px 0 5px; 
 }
 
-.selected {
- font-weight: bold;
+.selected a {
+  font-weight: bold;
+  color: #cd1d1d;
 }
 
+.chosen {
+  font-weight: bold;
+  color: #cd1d1d;
+}
+
+#habit_chart_content {
+  margin: 20px 0 0 0;
+}
+
+.select_day {
+  font-size: 130%;
+  position: relative;
+  top: -1px;
+}
+
+
+#habit_chart {
+  width: 100%;
+  margin: 10px 0 0 0;
+}
+
+#daily_chart_start_day {
+	width: 120px;
+  margin: 10px 20px 0 0;
+  border:0;
+  cursor: pointer;
+}
+
+#daily_chart_end_day {
+	width: 120px;
+  margin: 10px 0 0 0;
+  border:0;
+  cursor: pointer;
+}
+
+#daily_chart_start_day:focus{
+  outline-width: 0;
+}
+
+#daily_chart_end_day:focus{
+  outline-width: 0;
+}
+
+#chart_refresh { 
+  position: relative;
+  top: -31px;
+  left: 420px;
+  width: 60px;
+  padding: 3px 0 3px 0;
+  margin: 0 10px 0 0;
+  color: #505050;
+  font-size: 110%;
+  float:left;
+  -webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
 
 input[type=text], input[type=password] {
   width: 100%;
   font-weight:normal;
   font-size: 140%;
-	padding: 10px 0 8px 0;
+	padding: 10px 0 8px 10px;
 	margin: 0 0 10px 0;
 	background: #fff;
 	box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
-
 
 input[type=submit], .button{
   display: block;
@@ -131,20 +196,101 @@ input[type=submit]:hover, .button:hover{
   width: 100%;
 }
 
-.checkbox{
+.button:hover {
+  color: #505050;
+}
+
+.text-button input[type=submit]{
+  height: 20px;
+  width:40px;
+  font-size: 90%;
+  padding: 0 10px 0 0 ;
+	margin: 0 10px 0 0 ;
+	float: right;
+	position: relative;
+	top: -25px;
+  background:none !important;
+  background-image: none !important;
+  border:none !important;
+  color:#000 !important;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.text-button input[type=submit]:hover{
+  color: #cd1d1d !important;
+  cursor: pointer;
+}
+
+.chosen_yes input[type=submit]{
+  height: 20px;
+  color: #cd1d1d !important;
+  width:200px;
+  font-weight: bold;
+  font-size: 100%;
+  padding: 0 10px 0 0 ;
+	margin: 0 10px 0 0 ;
+	float: left !important;
+	position: relative;
+	top: -25px;
+	text-align: left;
+}
+
+.chosen_yes input[type=submit]:hover{
+  color: #cd1d1d !important;
+  cursor: pointer;
+}
+
+.chosen input[type=submit]{
+  height: 20px;
+  color: #505050 !important;
+  width:200px;
+  font-weight: bold;
+  font-size: 100%;
+  padding: 0 10px 0 0 ;
+	margin: 0 10px 0 0 ;
+	float: left !important;
+	position: relative;
+	top: -25px;
+	text-align: left;
+}
+
+.chosen input[type=submit]:hover{
+  color: #505050 !important;
+  cursor: pointer;
+}
+
+#add_habit_type { 
+  position: relative;
+  top: -43px;
+  width: 60px;
+  padding: 3px 0 3px 0;
+  margin: 0 10px 0 0;
+  color: #505050;
+  font-size: 110%;
+  float:right;
+  -webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.checkbox {
   width: 100%;
   display: inline-block;
   margin: 0 0 10px 0;
+  cursor: pointer;
+}
+
+.checkbox label{
+  cursor: pointer;
 }
 
 table{
-  width: 80%;
 }
 
 .login{
   margin: 95px 0 0 0;
 }
-
 
 .signup {
   width: 100%;
@@ -152,9 +298,28 @@ table{
 }
 
 .habit{
-  margin: 90px 0 0 0;
+  margin: 80px 0 0 0;
 }
 
+.habit_types {
+  margin: 40px 0 0 0;
+}
+
+.habit_types_container {
+  display: block;
+  background-color: #f8f8f8;
+  padding: 28px 0 0 20px;
+	border: solid 1px #BBBBBB;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.habit_types ul li{
+  font-size: 120%;
+  margin: 0 auto 0 auto;
+  display: block;
+  padding: 0 0 10px 0;
+}
 .user_new{
   text-align: center;
   margin: 30px 0 0 0;
@@ -166,17 +331,17 @@ table{
 
 /* flash messages */
 #flashContainer{
-display: block;
-position: absolute; 
-left: 50%;
-width: 100%;
+  display: block;
+  position: absolute; 
+  left: 50%;
+  width: 100%;
 }
 
 #flashMessage{
-position: relative;
-left: -50%;
-width: 95%;
-margin: 0 auto 0 auto;
+  position: relative;
+  left: -50%;
+  width: 95%;
+  margin: 0 auto 0 auto;
 }
 
 .notice {
@@ -186,7 +351,7 @@ margin: 0 auto 0 auto;
 	font-weight: bold;
 	text-align: center;
   margin: 15px 0 18px 0;
-	padding: 20px 14px;
+	padding: 15px 14px;
   border: 1px solid rgba(0, 0, 0, 0.5);
 	background: #3B8230;
 	background-repeat: repeat-x;
@@ -212,7 +377,7 @@ margin: 0 auto 0 auto;
 	font-weight: bold;
 	text-align: center;
   margin: 15px 0 18px 0;
-	padding: 20px 14px;
+	padding: 15px 14px;
   color: #fff;
 	background: #c43c35;
 	border: 1px solid rgba(0, 0, 0, 0.5);
@@ -239,7 +404,7 @@ margin: 0 auto 0 auto;
 	font-weight: bold;
 	text-align: center;
   margin: 15px 0 18px 0;
-	padding: 20px 14px;
+	padding: 15px 14px;
   color: #fff;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#7fbfff), to(#1ba1fd));
 	background-image: -webkit-linear-gradient(top, #7fbfff, #1ba1fd);
@@ -263,4 +428,14 @@ margin: 0 auto 0 auto;
 
 .field_with_errors ::-webkit-input-placeholder{
   color: #c43c35;
+}
+
+.errors{
+  height: 0px;
+  position: relative;
+  color: #c43c35;
+  font-size: 140%;
+  top: 25px;
+  text-align: right;
+  margin: -12px 10px 0 0 ;
 }

@@ -1,0 +1,9 @@
+<%= form_for(:daily_chart, :url => {:action => 'daily_chart'}, remote: true) do |f| %>
+
+  <%= render(:partial => 'form', :locals => {:f => f} ) %>
+  
+<% end %>
+<div id="habit_chart"></div> 
+
+
+

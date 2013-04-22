@@ -1,24 +1,7 @@
-<%= error_messages_for(@habit) %>
+<%= f.label 'start day: ', :class => "select_day" %>
+<%= f.text_field :start_day, :readonly => true %>
 
-<table summary="User form fields">
-  <div class="field">
-      <%= f.label :first_name %><br />
-      <%= f.text_field :first_name %>
-    </div>
-    <div class="field">
-      <%= f.label :last_name %><br />
-      <%= f.text_field :last_name %>
-    </div>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.text_field :email %>
-    </div>
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password %>
-    </div>
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %>
-    </div>
-</table>
+<%= f.label 'end day: ', :class => "select_day" %>
+<%= f.text_field :end_day, :readonly => true %>
+
+<div><%= submit_tag "refresh", :id => "chart_refresh" %></div>

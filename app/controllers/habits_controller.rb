@@ -2,19 +2,23 @@ class HabitsController < ApplicationController
   
   before_filter :confirm_logged_in
   
-  def show_menu
-    @show_menu  = true
-  end
-  
   def entry
     show_menu 
-    if cookies[:user_id]
-     user_id = cookies.signed[:user_id]
-    else
-      user_id = session[:user_id]
+    habit_ids = UsersHabit.where("user_id=?", current_user_id).collect {|i| i.habit_id}
+    @habits = Habit.order("name ASC").where(:id => habit_ids)
+    @user = User.find(current_user_id)
+    @habit_totals = HabitsUser.where('user_id=? AND habit_id = ? AND created_at LIKE ?', current_user_id, habit_ids, Date.today).to_sql    
+  end
+  
+  def daily_chart
+    respond_to do |format|
+      format.html
+      format.js
     end
-    @habits = Habit.order("name ASC").find_all_by_user_id([0, user_id])
-    @user = User.find(user_id)
+  end
+  
+  def totals
+    show_menu 
   end
   
   def new
@@ -33,8 +37,7 @@ class HabitsController < ApplicationController
   
   def add
     @habit = Habit.find(params[:add][:habit])
-    user_id = Digest::SHA256.hexdigest(cookies[:user_id])
-    @habit.users << User.find(session[:user_id])
+    @habit.users << User.find(current_user_id)
     flash[:notice] = "#{@habit.name} recorded!"
     redirect_to(:action => 'entry')
   end

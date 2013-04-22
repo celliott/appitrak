@@ -1,0 +1,19 @@
+<ul><% @habits.each do |habit| %>
+    <li></li>
+		  <% if @current_user_id.to_s == habit.user_id.to_s %>
+			  <%= form_for(:habit, :url => {:action => 'destroy', :id => habit.id}, remote: true) do |f| -%>		    
+			    <div class="text-button">
+			      <%= submit_tag("(delete)") %>
+			    </div>
+			  <% end %>
+			<% end %>	
+			<li class="chosen_<%= "yes" if @habit_types.exists?(:habit_id => habit.id) %>">
+		  <%= form_for(:habit_type, :url => {:action => 'add', :id => habit.id}, remote: true) do -%>		    
+		    <div class="text-button chosen<%= "_yes" if @habit_types.exists?(:habit_id => habit.id) %>">
+		      <%= submit_tag(habit.name) %>
+		    </div>
+		  <% end %>
+  <% end %>
+</ul>
+
+

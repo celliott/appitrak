@@ -3,8 +3,8 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :last_name, :first_name
   
-  has_many :habits_user
-  has_many :habits, :through => :habits_user
+  has_many :users_habit
+  has_many :habits, :through => :users_habit
     
   EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
     
