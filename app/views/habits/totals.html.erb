@@ -1,6 +1,13 @@
 <%= link_to "", 
-      {:action => 'daily_chart'}, 
-      id: "daily_charts", 
-      remote: true 
+    {:action => 'daily_chart'}, 
+    id: "daily_charts", 
+    remote: true 
 %>
+
+<%= form_for(:daily_chart, :url => {:action => 'daily_chart'}, :html => { :id => 'date_selectors' }, remote: true) do |f| %>
+
+  <%= render(:partial => 'form', :locals => {:f => f} ) %>
+  
+<% end %>
+
 <div id="habit_chart_content"></div> 

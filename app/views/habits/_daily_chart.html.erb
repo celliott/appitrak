@@ -1,9 +1,6 @@
-<%= form_for(:daily_chart, :url => {:action => 'daily_chart'}, remote: true) do |f| %>
+<%= content_tag :div, "", id: "habit_chart", data: {habits: habits_chart_data} %>
+<%= habits_chart_data %>
 
-  <%= render(:partial => 'form', :locals => {:f => f} ) %>
-  
+<% if params[:daily_chart] %>
+  <%= params[:daily_chart][:date_select] %>
 <% end %>
-<div id="habit_chart"></div> 
-
-
-

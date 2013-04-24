@@ -1,50 +1,37 @@
-$('#habit_chart_content').html("<%= j render(:partial => 'daily_chart') %>");
+<% if @has_date %>
+  $('#habit_chart_content').html("<%= j render(:partial => 'daily_chart') %>");
+<% else %>
+  $('#habit_chart_content').html("<%= j render(:partial => 'no_date') %>");
+<% end %>
+
+<% if @no_data %>
+  $('#habit_chart_content').html("<%= j render(:partial => 'no_data') %>");  
+<% end %>
   
 $(document).ready(function() {
-  $( "#daily_chart_start_day" ).datepicker();
-  $( "#daily_chart_end_day" ).datepicker();
-  todayDate = new Date();
-  month = todayDate.getMonth() + 1;
-  if(month < 10) {
-    month = '0' + month;
-  }
-  today = month + '/' + todayDate.getDate() + '/' + todayDate.getFullYear();
-  $("#daily_chart_start_day").val(today);
-  $("#daily_chart_start_day").val('04/21/2013');
-  $("#daily_chart_end_day").val(today);
-
-	if($("#daily_chart_start_day").val() === $("#daily_chart_end_day").val()){
-		Morris.Bar({
-	  element: 'habit_chart',
-	  data: [
-	    { h: 'smoke', c: 2 },
-	    { h: 'drink', c: 4 },
-	    { h: 'candy', c: 1 }
-	  ],
-	  xkey: 'h',
-	  ykeys: ['c'],
-	  labels: ['total'],
-	  barColors: ['#B8B8B8']
-	});
-	}else {
-	  Morris.Line({
+<% if @has_range %>
+		Morris.Line({
 		  element: 'habit_chart',
-		  data: [
-		    { d: '2013-04-18', a: 1, b:3, c:2 },
-		    { d: '2013-04-19', a: 7, b:1, c:3 },
-		    { d: '2013-04-20', a: 2, b:4, c:9 },
-		    { d: '2013-04-21', a: 4, b:2, c:1 },
-		    { d: '2013-04-22', a: 1, b:3, c:0 }
-		  ],
+		  data: $('#habit_chart').data('habits'),
 		  xkey: 'd',
-		  
-		  ykeys: ['a', 'b', 'c'],
+		  ykeys: ['h3', 'h230', 'h1'],
 		  xLabelFormat: function(d) {
         return (d.getMonth()+1)+'/'+d.getDate(); 
       },
-		  labels: ['smoke', 'drink', 'candy'],	
+		  labels: ['drink','candy','smoke'],	
 		  xLabel: 'day',	  
 	  });
-	}
+		<% else %>	
+  Morris.Bar({
+	  element: 'habit_chart',
+	  data: $('#habit_chart').data('habits'),
+	  xkey: 'h',
+	  ykeys: ['c'],
+	  labels: ['total'],
+	  barColors: ['#B8B8B8'],
+	  hideHover: 'always'
+	});
 
+<% end %>	
+//alert($('#habit_chart').data('habits'));	
 });

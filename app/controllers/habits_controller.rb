@@ -7,10 +7,33 @@ class HabitsController < ApplicationController
     habit_ids = UsersHabit.where("user_id=?", current_user_id).collect {|i| i.habit_id}
     @habits = Habit.order("name ASC").where(:id => habit_ids)
     @user = User.find(current_user_id)
-    @habit_totals = HabitsUser.where('user_id=? AND habit_id = ? AND created_at LIKE ?', current_user_id, habit_ids, Date.today).to_sql    
   end
   
   def daily_chart
+    @has_range = false
+    @has_date = true
+    @current_user_id = current_user_id
+    if params[:daily_chart]
+    	@date_select = params[:daily_chart][:date_select].split(/\s*,\s*/)	
+      if @date_select[1]
+        @has_range = true
+      elsif @date_select[0].nil?
+        @has_date = false
+      end
+    end
+    if !@has_range
+      @single_date = Time.now.to_date
+      if params[:daily_chart]
+        @date_select = params[:daily_chart][:date_select]
+        if @date_select != ""
+          @single_date = DateTime.strptime(@date_select, "%m/%d/%Y")
+        else
+          @single_date = Time.now.to_date
+        end 
+      end
+      daily_habits = HabitsUser.where("user_id=? AND DATE(created_at) = DATE(?)", current_user_id, @single_date).collect {|i| i.habit_id}
+      @habits = Habit.order("name ASC").where(:id => daily_habits)
+    end
     respond_to do |format|
       format.html
       format.js
@@ -18,7 +41,7 @@ class HabitsController < ApplicationController
   end
   
   def totals
-    show_menu 
+    show_menu  
   end
   
   def new

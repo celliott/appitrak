@@ -31,6 +31,7 @@ class AccessController < ApplicationController
        cookies[:user_id] = nil
        cookies.delete :user_id 
      end 
+     cookies.delete :time_zone
      redirect_to root_url
    end
 

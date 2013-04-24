@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  before_filter :set_timezone 
+
+  
   def show_menu
     @show_menu  = true
     @user = User.find(current_user_id)
@@ -31,5 +34,10 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  private
+
+	def set_timezone
+    Time.zone = cookies["time_zone"]
+  end
 
 end

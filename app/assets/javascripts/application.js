@@ -13,8 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.datepicker
+//= require jquery-ui.multidatespicker
 //= require raphael
 //= require morris
+//= require jstz.min
 //= require_tree .
 
 jQuery(document).ready(function() {
@@ -29,5 +31,27 @@ function fadeOut() {
 }
 
 $(window).bind('resize',function() {
-  $('#daily_charts').click();
+  var div_text = $('#habit_chart_no_date').text();
+  if(div_text !='please select a date') {
+    $('#chart_refresh').click();
+  }
 });
+
+$(document).ready(function() {
+  todayDate = new Date();
+  month = todayDate.getMonth() + 1;
+  if(month < 10) {
+    month = '0' + month;
+  }
+  today = month + '/' + todayDate.getDate() + '/' + todayDate.getFullYear();
+  $("#daily_chart_date_select").val(today);
+  $("#daily_chart_date_select").multiDatesPicker({
+  	maxPicks: 2,
+  	addDates: [today]
+  });
+
+  // set's timezone in a cookie 
+  var timezone = jstz.determine();
+  document.cookie = 'time_zone='+timezone.name()+';';
+});
+
