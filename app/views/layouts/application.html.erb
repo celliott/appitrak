@@ -26,7 +26,7 @@
 	    <li class="<%= "selected" if params[:action] == "entry" %>"><%= link_to("habits", root_url) %></li><li>:</li>
 	    
 	    <li class="<%= "selected" if params[:controller] == "habit_types" %>"><%= link_to("habit types", :controller => 'habit_types') %></li><li>:</li>
-	    <li class="<%= "selected" if params[:action] == "totals" %>"><%= link_to("totals/trends", :controller => 'totals') %></li>
+	    <li class="<%= "selected" if params[:action] == "trends" %>"><%= link_to("trends", :controller => 'trends') %></li>
 	        
 	  </ul> 
 	</div>

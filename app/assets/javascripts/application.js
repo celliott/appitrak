@@ -12,8 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.datepicker
-//= require jquery-ui.multidatespicker
 //= require raphael
 //= require morris
 //= require jstz.min
@@ -31,35 +29,14 @@ function fadeOut() {
 }
 
 $(window).bind('resize',function() {
-  var div_text = $('#habit_chart_no_date').text();
-  if(div_text !='select a date') {
-    $('#chart_refresh').click();
-  }
+  $('#chart_refresh').click();
 });
 
 $(document).ready(function() {
-  setToday();
-  $("#daily_chart_date_select").datepicker({
-    onClose: function() {
-     $('#chart_refresh').click();
-    }
-    }
-  );
-
   // set's timezone in a cookie 
   var timezone = jstz.determine();
   document.cookie = 'time_zone='+timezone.name()+';';
 });
-
-function setToday() {
-  todayDate = new Date();
-  month = todayDate.getMonth() + 1;
-  if(month < 10) {
-    month = '0' + month;
-  }
-  today = month + '/' + todayDate.getDate() + '/' + todayDate.getFullYear();
-  $("#daily_chart_date_select").val(today);
-}
 
 function setTrendCookie() {
   var trend = $("#trends_dropdown").val();

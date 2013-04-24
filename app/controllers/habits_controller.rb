@@ -11,22 +11,14 @@ class HabitsController < ApplicationController
   
   def daily_chart
     @current_user_id = current_user_id
-    if cookies[:trend] == '0'
-      @single_date = Time.now.to_date
-      cookies[:trend] = { :value => '0' }
-      if params[:daily_chart]
-				@single_date = DateTime.strptime(params[:daily_chart][:date_select], "%m/%d/%Y")
-      end
-      daily_habits = HabitsUser.where("user_id=?", current_user_id).collect {|i| i.habit_id}
-      @habits = Habit.order("name ASC").where(:id => daily_habits)
-    end
+    cookies[:trend] = { :value => '1' } if !cookies[:trend]
     respond_to do |format|
       format.html
       format.js
     end
   end
   
-  def totals
+  def trends
     show_menu  
   end
   

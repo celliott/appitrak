@@ -9,7 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require jquery.ui.datepicker
  *= require_tree .
  */
 
@@ -89,39 +88,9 @@ a:hover {
   margin: 40px 0 0 0;
 }
 
-.select_day {
-  font-size: 130%;
-}
-
-
 #habit_chart {
   width: 100%;
-  margin: 10px 0 0 0;
-}
-
-#habit_chart_no_date {
-  font-size: 130%;
-  width: 100%;
-  text-align: center;
-  margin: 70px 0 0 0;
-}
-
-#daily_chart_date_select {
-  color: #cd1d1d;
-	width: 130px;
-  margin: 10px 0 0 0;
-  border:0;
-  cursor: pointer;
-}
-
-
-#daily_chart_date_select:focus{
-  outline-width: 0;
-}
-
-#date_selectors {
-  display: block;
-  margin: 20px 0 -30px 10px;
+  margin: 40px 0 0 0;
 }
 
 #chart_refresh { 
@@ -129,10 +98,10 @@ a:hover {
 }
 
 #trend_selector {
-  float:right;
-  position: relative;
-  top: 3px;
+  display: block;
+  z-index: 99999;
   font-size: 140%;
+  margin: 40px 0 0 12px;
 }
 
 #trends_dropdown {
