@@ -1,48 +1,40 @@
 module HabitsHelper
 
   def habits_chart_data    
-    if @has_range
-      @chart_data_range = Array.new
-      @range_data = Array.new
-      @range_data_display = Array.new
-      @range_data_display2 = Array.new
-      daily_habit_count = Array.new
-      
-      start_date = Date.strptime(@date_select[0], "%m/%d/%Y")
-      end_date = Date.strptime(@date_select[1], "%m/%d/%Y")
-    	#(start_date..end_date).each do |date|
-    	start_date.upto(end_date) do |date|
-    	  daily_habits = HabitsUser.where("user_id=? AND DATE(created_at) = DATE(?)", @current_user_id, date).collect {|i| i.habit_id}
-        habits = Habit.order("name ASC").where(:id => daily_habits)
-        	habits.each do |habit|
-	 			    daily_count = HabitsUser.where("user_id=? AND habit_id = ? AND DATE(created_at) = DATE(?)", @current_user_id, habit.id, date).count
-				    daily_habit_count << 'h' + habit.id.to_s + ': "' + daily_count.to_s + '"'
-				    @daily_habit_c = daily_habit_count.map(&:inspect).join(', ')				    
-				  end
-				  @daily_habit_counter = '{d: "' + date.to_s + '", ' + @daily_habit_c.to_s + '}'
-          @daily_habit_counterer = @daily_habit_counter.to_s.gsub('\"', '"').gsub('\""', '"').gsub('""', '"').gsub('"h', 'h').gsub('"', "'")
-				  
-				  @range_data_display << @daily_habit_counterer
-				  @range_data_display
-
-      end 
-      @range_data_display.each do |range_data_display|
-				    puts 'djhdjhdjhdjhdjhdjhdjhdjhdjhdjhdjhdjh' 
-				    puts range_data_display
-				  end 
-      @range_data_display
-    else
-      if !@habits.blank?
-	      @habits.map do |habit|
-	 			daily_count = HabitsUser.where("user_id=? AND habit_id = ? AND DATE(created_at) = DATE(?)", @current_user_id, habit.id, @single_date).count
-		        { 
-		          h: habit.name, 
-		          c: daily_count 
-		        }
-	      end  
-	    else 
-	       @no_data = true
-	    end  
+    if cookies[:trend] && cookies[:trend] != '0'
+      if cookies[:trend] == '1'
+        @start_date = Time.now.beginning_of_week.to_date
+        @end_date = Time.now.to_date
+        @totals_for = 'current week'
+      elsif cookies[:trend] == '2'
+        @start_date = 1.week.ago.to_date
+        @end_date = Time.now.to_date
+        @totals_for = 'last week'
+      elsif cookies[:trend] == '3'
+        @start_date = 2.weeks.ago.to_date
+        @end_date = Time.now.to_date
+        @totals_for = 'last 2 weeks'
+      elsif cookies[:trend] == '4'
+        @start_date = 4.weeks.ago.to_date
+        @end_date = Time.now.to_date
+        @totals_for = 'last month'
+      elsif cookies[:trend] == '5'
+        @start_date = 3.months.ago.to_date
+        @end_date = Time.now.to_date
+        @totals_for = 'last 3 months'
+      elsif cookies[:trend] == '6'
+        @start_date = 6.months.ago.to_date
+        @end_date = Time.now.to_date
+        @totals_for = 'last 6 months'
+      end      
+    # elsif cookies[:trend] == '0'
+#       @habits.map do |habit|
+#  			  daily_count = HabitsUser.where("user_id=? AND habit_id = ? AND DATE(created_at) = DATE(?)", @current_user_id, habit.id, @single_date).count
+# 	        { 
+# 	          h: habit.name, 
+# 	          c: daily_count 
+# 	        }
+#       end   
     end
   end
 

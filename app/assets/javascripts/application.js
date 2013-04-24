@@ -32,12 +32,26 @@ function fadeOut() {
 
 $(window).bind('resize',function() {
   var div_text = $('#habit_chart_no_date').text();
-  if(div_text !='please select a date') {
+  if(div_text !='select a date') {
     $('#chart_refresh').click();
   }
 });
 
 $(document).ready(function() {
+  setToday();
+  $("#daily_chart_date_select").datepicker({
+    onClose: function() {
+     $('#chart_refresh').click();
+    }
+    }
+  );
+
+  // set's timezone in a cookie 
+  var timezone = jstz.determine();
+  document.cookie = 'time_zone='+timezone.name()+';';
+});
+
+function setToday() {
   todayDate = new Date();
   month = todayDate.getMonth() + 1;
   if(month < 10) {
@@ -45,13 +59,9 @@ $(document).ready(function() {
   }
   today = month + '/' + todayDate.getDate() + '/' + todayDate.getFullYear();
   $("#daily_chart_date_select").val(today);
-  $("#daily_chart_date_select").multiDatesPicker({
-  	maxPicks: 2,
-  	addDates: [today]
-  });
+}
 
-  // set's timezone in a cookie 
-  var timezone = jstz.determine();
-  document.cookie = 'time_zone='+timezone.name()+';';
-});
-
+function setTrendCookie() {
+  var trend = $("#trends_dropdown").val();
+  document.cookie = 'trend='+trend;
+}

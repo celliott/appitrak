@@ -1,27 +1,45 @@
-<% if @has_date %>
-  $('#habit_chart_content').html("<%= j render(:partial => 'daily_chart') %>");
-<% else %>
-  $('#habit_chart_content').html("<%= j render(:partial => 'no_date') %>");
-<% end %>
-
-<% if @no_data %>
-  $('#habit_chart_content').html("<%= j render(:partial => 'no_data') %>");  
-<% end %>
-  
+$('#habit_chart_content').html("<%= j render(:partial => 'daily_chart') %>");
+ 
 $(document).ready(function() {
-<% if @has_range %>
+//alert('<%= cookies[:trend] %>')
+<% if cookies[:trend] != '0' %>
+		$("#daily_chart_date_select").val('<%= @totals_for %>');
 		Morris.Line({
 		  element: 'habit_chart',
-		  data: $('#habit_chart').data('habits'),
+		  data: [
+		  <% @start_date.upto(@end_date).each do |date| %>
+    	  <% daily_habits = HabitsUser.where("user_id=?", @current_user_id).collect {|i| i.habit_id} %>
+        <% @habits = Habit.order("name ASC").where(:id => daily_habits) %>
+        	{ d: '<%= date %>',
+        <% @habits.each do |habit| %>
+        	<% daily_count = HabitsUser.where("user_id=? AND habit_id = ? AND DATE(created_at) = DATE(?)", @current_user_id, habit.id, date).count %>
+     				h<%= habit.id%>: <%= daily_count %>,
+					<% end %>
+					},
+    	<% end %>	
+  		],
 		  xkey: 'd',
-		  ykeys: ['h3', 'h230', 'h1'],
+		  ykeys: [
+		    <% @habits.each do |habit| %>
+		    'h<%= habit.id%>',
+		    <% end %>
+		  ],
 		  xLabelFormat: function(d) {
         return (d.getMonth()+1)+'/'+d.getDate(); 
       },
-		  labels: ['drink','candy','smoke'],	
+		  labels: [
+		    <% @habits.each do |habit| %>
+		      '<%= habit.name%>',
+		    <% end %>
+		  ],	
 		  xLabel: 'day',	  
-	  });
-		<% else %>	
+	});
+	
+<% elsif cookies[:trend] == '0' %>	
+	<%	if params[:trend] == '0' %>
+		setToday();	
+		$('#chart_refresh').click();
+	<% end %>  
   Morris.Bar({
 	  element: 'habit_chart',
 	  data: $('#habit_chart').data('habits'),
@@ -31,7 +49,7 @@ $(document).ready(function() {
 	  barColors: ['#B8B8B8'],
 	  hideHover: 'always'
 	});
-
+	$("#trends_dropdown").val("");
+	document.cookie = 'trend=0';
 <% end %>	
-//alert($('#habit_chart').data('habits'));	
 });

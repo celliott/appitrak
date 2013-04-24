@@ -108,7 +108,7 @@ a:hover {
 
 #daily_chart_date_select {
   color: #cd1d1d;
-	width: 230px;
+	width: 130px;
   margin: 10px 0 0 0;
   border:0;
   cursor: pointer;
@@ -121,12 +121,23 @@ a:hover {
 
 #date_selectors {
   display: block;
-  width: 320px;
   margin: 20px 0 -30px 10px;
 }
 
 #chart_refresh { 
   display:none;
+}
+
+#trend_selector {
+  float:right;
+  position: relative;
+  top: 3px;
+  font-size: 140%;
+}
+
+#trends_dropdown {
+  position: relative;
+  top: -1px;
 }
 
 input[type=text], input[type=password] {
