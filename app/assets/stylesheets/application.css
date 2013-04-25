@@ -16,6 +16,7 @@
 * {
 	margin:0;
 	padding:0;
+	outline-width: 0;
 }
 
 body {
@@ -119,10 +120,6 @@ a:hover {
   *border-radius:5px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-}
-
-.colorbox {
-  outline-width: 0;
 }
 
 #habit_chart_content {

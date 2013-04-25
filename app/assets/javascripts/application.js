@@ -21,22 +21,13 @@
 //= require_tree .
 
 //<![CDATA[
-jQuery(document).ready(function() {
-  timer = setTimeout(fadeOut, 1500);
-  jQuery("#flashMessage").hide();
-  jQuery("#flashMessage").fadeIn(500);
-  
-});
-
-function fadeOut() {
-  jQuery("#flashMessage").fadeOut(500);
-}
-
-$(window).bind('resize',function() {
-  $('#chart_refresh').click();
-});
-
 $(document).ready(function() {
+  
+  // fades flash message
+  timer = setTimeout(fadeOut, 1500);
+  $("#flashMessage").hide();
+  $("#flashMessage").fadeIn(500);
+
   // set's timezone in a cookie 
   var timezone = jstz.determine();
   document.cookie = 'time_zone='+timezone.name()+';';
@@ -51,18 +42,31 @@ $(document).ready(function() {
       window.location = $(this).attr("href");
     }
   });
-  function isTextInput(node) {
-    return ['INPUT', 'TEXTAREA'].indexOf(node.nodeName) !== -1;
-  }
-
-	document.addEventListener('touchstart', function(e) {
-	    if (!isTextInput(e.target) && isTextInput(document.activeElement)) {
-	        document.activeElement.blur();
-	    }
-	}, false);
+  
+  // dismisses ios keyboard after adding new habit_type 
+	  function isTextInput(node) {
+	    return ['INPUT', 'TEXTAREA'].indexOf(node.nodeName) !== -1;
+	  }
+	
+		document.addEventListener('touchstart', function(e) {
+		    if (!isTextInput(e.target) && isTextInput(document.activeElement)) {
+		        document.activeElement.blur();
+		    }
+		}, false);
   
 });
 
+// funcion to fadout flash message
+function fadeOut() {
+  jQuery("#flashMessage").fadeOut(500);
+}
+
+// resizes trend_graph on window resize
+$(window).bind('resize',function() {
+  $('#chart_refresh').click();
+});
+
+// sets trend cookie after trend dropdown selection
 function setTrendCookie() {
   var trend = $("#trends_dropdown").val();
   document.cookie = 'trend='+trend;

@@ -5,5 +5,7 @@ class Habit < ActiveRecord::Base
   has_many :users, :through => :habits_user
   
   validates :name, :presence => true, :uniqueness => {:scope => :user_id}
+  
+  before_save { |habit| habit.name = habit.name.downcase }
 
 end

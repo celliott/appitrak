@@ -2,13 +2,13 @@ $('.habit_types_container').html("<%= j render(:partial => 'habit_types') %>");
 
 
 jQuery(document).ready(function() {
-  timer = setTimeout(fadeOut, 1500);
+  timer = setTimeout(fadeOut_habbit_type, 1500);
   jQuery("#flash_message_habbit_type").hide();
   jQuery("#flash_message_habbit_type").fadeIn(500);
   
 });
 
-function fadeOut() {
+function fadeOut_habbit_type() {
   jQuery("#flash_message_habbit_type").fadeOut(500);
 };
 
