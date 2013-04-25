@@ -113,8 +113,14 @@ a:hover {
   float:right;
 }
 
+#page_description {
+  font-size: 120%;
+  margin: 10px 0 0px 0;
+
+}
+
 .main_image { 
-  margin: 20px auto 50px auto;
+  margin: 40px auto 50px auto;
   max-width: 100%;
   -webkit-filter: drop-shadow(2px 2px 10px rgba(0,0,0,.35));
   *border-radius:5px;
@@ -330,6 +336,7 @@ input[type=submit]:hover, .button:hover{
 }
 
 .checkbox {
+  font-size: 120%;
   width: 100%;
   display: inline-block;
   margin: 0 0 10px 0;

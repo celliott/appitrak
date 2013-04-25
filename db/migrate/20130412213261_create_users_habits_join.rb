@@ -5,7 +5,7 @@ class CreateUsersHabitsJoin < ActiveRecord::Migration
       t.integer "user_id"
       t.timestamps
     end
-  add_index :users_habits, ["habits_id", "user_id"]
+  add_index :users_habits, ["habit_id", "user_id"]
   end
   
   def down
