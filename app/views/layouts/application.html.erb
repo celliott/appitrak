@@ -5,6 +5,11 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />  
+  <meta name="viewport" content="width=device-width, initial-scale=.6, user-scalable=0" />
+  <meta name="viewport" id="vp" content="initial-scale=.6,user-scalable=no,maximum-scale=1" media="(device-height: 568px)" />
+  <link rel="apple-touch-icon-precomposed" href="/images/habit_icon.png"/>
 </head>
 <body>
 
@@ -24,13 +29,22 @@
 	      <li><%= link_to("logout", :controller => 'logout') %></li><li>:</li>
 	    <% end %>     
 	    <li class="<%= "selected" if params[:action] == "entry" %>"><%= link_to("habits", root_url) %></li><li>:</li>
-	    
 	    <li class="<%= "selected" if params[:controller] == "habit_types" %>"><%= link_to("habit types", :controller => 'habit_types') %></li><li>:</li>
 	    <li class="<%= "selected" if params[:action] == "trends" %>"><%= link_to("trends", :controller => 'trends') %></li>
-	        
 	  </ul> 
 	</div>
 <% end %>
+
+<% if @show_public_menu %>
+	<div class="main menu">
+	  <ul>
+	      <li class="<%= "selected" if params[:controller] == "main" %>"><%= link_to("home", root_url) %></li><li>:</li>
+	      <li class="<%= "selected" if params[:action] == "login" %>"><%= link_to("login", :controller => 'login') %></li><li>:</li>
+	      <li class="<%= "selected" if params[:action] == "new" %>"><%= link_to("sign up", :controller => 'signup') %></li>	        
+	  </ul> 
+	</div>
+<% end %>
+
 	<div id="flashContainer">
 		<div id="flashMessage">
 		  <% if flash[:notice] %>

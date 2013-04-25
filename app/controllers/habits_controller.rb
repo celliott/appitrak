@@ -11,6 +11,8 @@ class HabitsController < ApplicationController
   
   def daily_chart
     @current_user_id = current_user_id
+    daily_habits = HabitsUser.where("user_id=?", @current_user_id).collect {|i| i.habit_id}
+    @habits = Habit.order("name ASC").where(:id => daily_habits)
     cookies[:trend] = { :value => '1' } if !cookies[:trend]
     respond_to do |format|
       format.html

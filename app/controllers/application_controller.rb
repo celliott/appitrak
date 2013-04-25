@@ -3,10 +3,13 @@ class ApplicationController < ActionController::Base
   
   before_filter :set_timezone 
 
-  
   def show_menu
-    @show_menu  = true
+    @show_menu = true
     @user = User.find(current_user_id)
+  end
+  
+  def show_public_menu
+    @show_public_menu = true
   end
   
   def current_user_id
@@ -22,13 +25,11 @@ class ApplicationController < ActionController::Base
   protected
   
   def confirm_logged_in
-    if cookies[:user_id]
-      session[:user_id] = cookies.signed[:user_id]
-    end
+    session[:user_id] = cookies.signed[:user_id] if cookies[:user_id]
     unless session[:user_id] || cookies[:user_id]
       flash[:error] = "Please log in."
       redirect_to(:controller => 'access', :action => 'login')
-      return false # halts the before_filter
+      return false
     else
       return true
     end

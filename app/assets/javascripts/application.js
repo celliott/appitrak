@@ -12,11 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.colorbox-min
 //= require raphael
 //= require morris
 //= require jstz.min
+//= require bookmark_bubble
+//= require bubble
 //= require_tree .
 
+//<![CDATA[
 jQuery(document).ready(function() {
   timer = setTimeout(fadeOut, 1500);
   jQuery("#flashMessage").hide();
@@ -36,9 +40,23 @@ $(document).ready(function() {
   // set's timezone in a cookie 
   var timezone = jstz.determine();
   document.cookie = 'time_zone='+timezone.name()+';';
+  // $('.colorbox').colorbox({photo:true, opacity:0.77, maxHeight:"100%"});
+  
+  // keeps web app links in the same window
+  $("a").click(function (event) {
+    event.preventDefault();
+    if($(this).attr("href") == '/habit_types/habit_types'){
+      window.location.top= $(this).attr("href");
+    } else {  
+      window.location = $(this).attr("href");
+    }
+  });
+  
 });
 
 function setTrendCookie() {
   var trend = $("#trends_dropdown").val();
   document.cookie = 'trend='+trend;
-}
+}	
+
+//]]>

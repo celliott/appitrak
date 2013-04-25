@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
     :format => EMAIL_REGEX, :confirmation => true
   validates_length_of :password, :within => 8..25, :on => :create
 
-
   before_save :create_password
   after_save :clear_password
   

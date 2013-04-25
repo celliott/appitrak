@@ -26,6 +26,7 @@ class HabitTypesController < ApplicationController
     @user = User.find(current_user_id)
     @habit = Habit.where('name=? AND user_id=?', params[:habit_type][:name].to_s, current_user_id)
     @user.habits << @habit
+    flash[:notice] = "#{params[:habit_type][:name]} has been created!"
     respond_to do |format|
       format.html { redirect_to habit_types_url}
       format.js
@@ -37,11 +38,14 @@ class HabitTypesController < ApplicationController
     @habit = Habit.find(params[:id])
     @habit_type = UsersHabit.where('user_id=? AND habit_id = ?', current_user_id, params[:id])
     if @habit_type.exists?
+      flash[:notice] = "#{@habit.name} unselected"
       @user.habits.delete(@habit)
+      
     else
       @user.habits << @habit
+      flash[:notice] = "#{@habit.name} selected"
     end
-    flash[:notice] = "Habit selected."
+    
     respond_to do |format|
       format.html { redirect_to habit_types_url}
       format.js
@@ -58,7 +62,7 @@ class HabitTypesController < ApplicationController
     @user.habits.delete(@habit)
     @habit.users.delete(@user)
     Habit.find(params[:id]).destroy
-    flash[:notice] = "Habit removed."
+    flash[:notice] = "#{@habit.name} has been removed"
     respond_to do |format|
       format.html { redirect_to habit_types_url}
       format.js

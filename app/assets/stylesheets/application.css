@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require colorbox
  *= require_tree .
  */
 
@@ -84,6 +85,46 @@ a:hover {
   color: #cd1d1d;
 }
 
+/* page content */
+
+#main_content {
+  min-width: 50%;
+  margin: 40px auto 0 auto;
+}
+
+#main_description {
+  font-size: 120%;
+  margin: 10px 0 50px 0;
+}
+
+#main_content_left {
+  display: block; 
+  margin: 0 0 0 0;
+  *width: 90%;
+  float:left;
+}
+
+#main_content_right {
+  display: block; 
+  *padding: 0 0 0 40px;
+  margin: 0 0 0 0;
+  *width: 90%;
+  float:right;
+}
+
+.main_image { 
+  margin: 20px auto 50px auto;
+  max-width: 100%;
+  -webkit-filter: drop-shadow(2px 2px 10px rgba(0,0,0,.35));
+  *border-radius:5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.colorbox {
+  outline-width: 0;
+}
+
 #habit_chart_content {
   margin: 40px 0 0 0;
 }
@@ -97,18 +138,48 @@ a:hover {
   display:none;
 }
 
-#trend_selector {
+.login{
+  margin: 95px 0 0 0;
+}
+
+.signup {
+  width: 100%;
+  margin: 10px 0 0 0;
+}
+
+.habit{
+  margin: 80px 0 0 0;
+}
+
+.habit_types {
+  margin: 80px 0 0 0;
+}
+
+.habit_types_container {
   display: block;
-  z-index: 99999;
-  font-size: 140%;
-  margin: 40px 0 0 12px;
+  background-color: #f8f8f8;
+  padding: 28px 0 0 20px;
+	border: solid 1px #BBBBBB;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.habit_types ul li{
+  font-size: 120%;
+  margin: 0 auto 0 auto;
+  display: block;
+  padding: 0 0 10px 0;
+}
+.user_new{
+  text-align: center;
+  margin: 30px 0 0 0;
 }
 
-#trends_dropdown {
-  position: relative;
-  top: -1px;
+.user_create{
+  margin: 30px 0 0 0;
 }
 
+/* inputs and buttons */
 input[type=text], input[type=password] {
   width: 100%;
   font-weight:normal;
@@ -163,6 +234,11 @@ input[type=submit]:hover, .button:hover{
 }
 
 .button {
+  width: 100%;
+}
+
+.main_button {
+  max-height:40px !important;
   width: 100%;
 }
 
@@ -244,6 +320,18 @@ input[type=submit]:hover, .button:hover{
 	border-radius: 4px;
 }
 
+#trend_selector {
+  display: block;
+  z-index: 99999;
+  font-size: 140%;
+  margin: 40px 0 0 12px;
+}
+
+#trends_dropdown {
+  position: relative;
+  top: -1px;
+}
+
 .checkbox {
   width: 100%;
   display: inline-block;
@@ -255,60 +343,32 @@ input[type=submit]:hover, .button:hover{
   cursor: pointer;
 }
 
-table{
-}
-
-.login{
-  margin: 95px 0 0 0;
-}
-
-.signup {
-  width: 100%;
-  margin: 10px 0 0 0;
-}
-
-.habit{
-  margin: 80px 0 0 0;
-}
-
-.habit_types {
-  margin: 40px 0 0 0;
-}
-
-.habit_types_container {
-  display: block;
-  background-color: #f8f8f8;
-  padding: 28px 0 0 20px;
-	border: solid 1px #BBBBBB;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-}
-.habit_types ul li{
-  font-size: 120%;
-  margin: 0 auto 0 auto;
-  display: block;
-  padding: 0 0 10px 0;
-}
-.user_new{
-  text-align: center;
-  margin: 30px 0 0 0;
-}
-
-.user_create{
-  margin: 30px 0 0 0;
-}
-
 /* flash messages */
-#flashContainer{
+#flashContainer {
   display: block;
   position: absolute; 
   left: 50%;
   width: 100%;
 }
 
-#flashMessage{
+#flashMessage {
   position: relative;
+  left: -50%;
+  width: 95%;
+  margin: 0 auto 0 auto;
+}
+
+
+#flash_container_habbit_type {
+  display: block;
+  position: absolute; 
+  left: 50%;
+  width: 100%;
+}
+
+#flash_message_habbit_type {
+  position: relative;
+  top: -210px;
   left: -50%;
   width: 95%;
   margin: 0 auto 0 auto;
@@ -408,23 +468,4 @@ table{
   top: 25px;
   text-align: right;
   margin: -12px 10px 0 0 ;
-}
-
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
-	background: #F8F7F6 url('images/ui-bg_fine-grain_10_f8f7f6_60x60.png') 50% 50% repeat;
-}
-
-/* jQuery UI Datepicker */
-  /* moving pixels fix */
-table.ui-datepicker-calendar {
-  border-collapse: separate;
-}
-.ui-datepicker-calendar td {
-  border: 1px solid transparent;
-}
-
-  /* emphasis on selected dates */
-.ui-datepicker .ui-datepicker-calendar .ui-state-highlight a {
-	background: #c43c35 none;
-	color: white;
 }

@@ -1,11 +1,14 @@
 Appitrak::Application.routes.draw do
+  get "main/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  root :to => "habits#entry"
+  root :to => "main#index"
   match 'login', :to => 'access#login'
   match 'logout', :to => 'access#logout'
   match 'signup', :to => 'users#new'
+  match 'habits', :to => 'habits#entry'
   match 'habit_types', :to => 'habit_types#index'
   match 'trends', :to => 'habits#trends'
 

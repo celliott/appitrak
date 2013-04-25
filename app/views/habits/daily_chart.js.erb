@@ -6,12 +6,13 @@ $(document).ready(function() {
 	  element: 'habit_chart',
 	  data: [
 	  <% @start_date.upto(@end_date).each do |date| %>
-  	  <% daily_habits = HabitsUser.where("user_id=?", @current_user_id).collect {|i| i.habit_id} %>
-      <% @habits = Habit.order("name ASC").where(:id => daily_habits) %>
       	{ d: '<%= date %>',
       <% @habits.each do |habit| %>
+        <% @habit_types = UsersHabit.where('user_id=? AND habit_id=?', @current_user_id, habit.id).count %>
       	<% daily_count = HabitsUser.where("user_id=? AND habit_id = ? AND DATE(created_at) = DATE(?)", @current_user_id, habit.id, date).count %>
-   				h<%= habit.id%>: <%= daily_count %>,
+      	  <%if @habit_types > 0 %>
+   				  h<%= habit.id%>: <%= daily_count %>,
+				  <% end %>
 				<% end %>
 				},
   	<% end %>	
@@ -19,7 +20,10 @@ $(document).ready(function() {
 	  xkey: 'd',
 	  ykeys: [
 	    <% @habits.each do |habit| %>
-	    'h<%= habit.id%>',
+	      <% @habit_types = UsersHabit.where('user_id=? AND habit_id=?', @current_user_id, habit.id).count %>
+	      <%if @habit_types > 0 %>
+	        'h<%= habit.id%>',
+	      <% end %> 
 	    <% end %>
 	  ],
 	  xLabelFormat: function(d) {
@@ -27,7 +31,10 @@ $(document).ready(function() {
     },
 	  labels: [
 	    <% @habits.each do |habit| %>
-	      '<%= habit.name%>',
+	      <% @habit_types = UsersHabit.where('user_id=? AND habit_id=?', @current_user_id, habit.id).count %>
+	      <%if @habit_types > 0 %>
+	        '<%= habit.name%>',
+	      <% end %>  
 	    <% end %>
 	  ],	
 	  xLabel: 'day',	  

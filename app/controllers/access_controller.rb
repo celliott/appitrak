@@ -5,6 +5,7 @@ class AccessController < ApplicationController
    end
 
    def login
+     show_public_menu
      # login form
    end
 
@@ -24,13 +25,8 @@ class AccessController < ApplicationController
    end
 
    def logout
-     if session[:user_id]
-       session[:user_id] = nil       
-     end
-     if cookies[:user_id]
-       cookies[:user_id] = nil
-       cookies.delete :user_id 
-     end 
+     session.delete :user_id 
+     cookies.delete :user_id 
      cookies.delete :trend
      redirect_to root_url
    end

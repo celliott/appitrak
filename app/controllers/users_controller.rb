@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_filter :confirm_logged_in, :except => [:new, :create, :login, :attempt_login, :logout]
      
   def new
+    show_public_menu
     @user = User.new
   end
 
