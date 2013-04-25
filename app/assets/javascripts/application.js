@@ -26,6 +26,7 @@ $(document).ready(function() {
   // fades flash message
   timer = setTimeout(fadeOut, 2500);
   $("#flashMessage").hide();
+  $("#flashMessage").removeClass('hide');
   $("#flashMessage").fadeIn(500);
 
   // set's timezone in a cookie 
