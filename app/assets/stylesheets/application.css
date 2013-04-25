@@ -123,11 +123,16 @@ a:hover {
   margin: 40px auto 50px auto;
   max-width: 100%;
   -webkit-filter: drop-shadow(2px 2px 10px rgba(0,0,0,.35));
-  *border-radius:5px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 
+.main_image_iphone {
+  margin: 40px auto 50px auto;
+  max-width: 100%;
+  -webkit-filter: drop-shadow(2px 2px 10px rgba(0,0,0,.35));
+  border-radius:6px;
+}  
 #habit_chart_content {
   margin: 40px 0 0 0;
 }

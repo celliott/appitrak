@@ -71,5 +71,4 @@ function setTrendCookie() {
   var trend = $("#trends_dropdown").val();
   document.cookie = 'trend='+trend;
 }	
-
 //]]>
