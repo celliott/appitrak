@@ -20,13 +20,13 @@ class HabitTypesController < ApplicationController
   end
   
   def create
-    @habits = Habit.order("name ASC").find_all_by_user_id([0, current_user_id])
-		@habit_types = UsersHabit.where('user_id=? AND habit_id = ?"', current_user_id, params[:id])
-    @habit = Habit.create!(params[:habit_type].merge(:user_id => current_user_id))
-    @user = User.find(current_user_id)
-    @habit = Habit.where('name=? AND user_id=?', params[:habit_type][:name].to_s, current_user_id)
-    @user.habits << @habit
-    flash[:notice] = "#{params[:habit_type][:name]} has been created!"
+	    @habits = Habit.order("name ASC").find_all_by_user_id([0, current_user_id])
+			@habit_types = UsersHabit.where('user_id=? AND habit_id = ?"', current_user_id, params[:id])
+	    @habit = Habit.create!(params[:habit_type].merge(:user_id => current_user_id))
+	    @user = User.find(current_user_id)
+	    @habit = Habit.where('name=? AND user_id=?', params[:habit_type][:name].to_s, current_user_id)
+	    @user.habits << @habit
+	    flash[:notice] = "#{params[:habit_type][:name]} has been created and selected!"
     respond_to do |format|
       format.html { redirect_to habit_types_url}
       format.js
@@ -38,14 +38,12 @@ class HabitTypesController < ApplicationController
     @habit = Habit.find(params[:id])
     @habit_type = UsersHabit.where('user_id=? AND habit_id = ?', current_user_id, params[:id])
     if @habit_type.exists?
-      flash[:notice] = "#{@habit.name} unselected"
+      flash[:notice] = "#{@habit.name} has been unselected"
       @user.habits.delete(@habit)
-      
     else
       @user.habits << @habit
       flash[:notice] = "#{@habit.name} selected"
     end
-    
     respond_to do |format|
       format.html { redirect_to habit_types_url}
       format.js
