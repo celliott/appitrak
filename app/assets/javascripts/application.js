@@ -24,7 +24,7 @@
 $(document).ready(function() {
   
   // fades flash message
-  timer = setTimeout(fadeOut, 1500);
+  timer = setTimeout(fadeOut, 2500);
   $("#flashMessage").hide();
   $("#flashMessage").fadeIn(500);
 
