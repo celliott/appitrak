@@ -7,6 +7,10 @@ class HabitsController < ApplicationController
     habit_ids = UsersHabit.where("user_id=?", current_user_id).collect {|i| i.habit_id}
     @habits = Habit.order("name ASC").where(:id => habit_ids)
     @user = User.find(current_user_id)
+    if @habits.empty?
+      redirect_to(:controller => 'habit_types')
+      flash[:alert] = 'add or select some habits to get started'
+    end
   end
   
   def daily_chart
@@ -22,6 +26,11 @@ class HabitsController < ApplicationController
   
   def trends
     show_menu  
+    habit_check = HabitsUser.where("user_id=?", current_user_id).count
+    if habit_check < 1
+      redirect_to(:controller => 'habits')
+      flash[:alert] = 'you need to track a habit before viewing trends'
+    end
   end
   
   def new

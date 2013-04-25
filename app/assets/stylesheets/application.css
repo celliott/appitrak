@@ -416,12 +416,12 @@ input[type=submit]:hover, .button:hover{
 	background: #c43c35;
 	border: 1px solid rgba(0, 0, 0, 0.5);
 	background-repeat: repeat-x;
-	background-image: -moz-linear-gradient(top, #ee5f5b, #c43c35);
-	background-image: -ms-linear-gradient(top, #ee5f5b, #c43c35);
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#ee5f5b), to(#c43c35));
-	background-image: -webkit-linear-gradient(top, #ee5f5b, #c43c35);
-	background-image: -o-linear-gradient(top, #ee5f5b, #c43c35);
-	background-image: linear-gradient(top, #ee5f5b, #c43c35);
+	background-image: -moz-linear-gradient(top, #ee5f5b, #cd1d1d);
+	background-image: -ms-linear-gradient(top, #ee5f5b, #cd1d1d);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#ee5f5b), to(#cd1d1d));
+	background-image: -webkit-linear-gradient(top, #ee5f5b, #cd1d1d);
+	background-image: -o-linear-gradient(top, #ee5f5b, #cd1d1d);
+	background-image: linear-gradient(top, #ee5f5b, #cd1d1d);
 	text-shadow: #c43c35 0px 1px 0px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
