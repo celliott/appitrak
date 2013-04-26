@@ -100,7 +100,7 @@ a:hover {
 
 #main_content_left {
   display: block; 
-  margin: 0 0 0 0;
+  margin: 20px 0 0 0;
   *width: 90%;
   float:left;
 }
@@ -377,7 +377,6 @@ input[type=submit]:hover, .button:hover{
   width: 95%;
   margin: 0 auto 0 auto;
 }
-
 
 #flash_container_habbit_type {
   display: block;
