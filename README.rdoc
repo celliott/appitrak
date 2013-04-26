@@ -1,4 +1,4 @@
-== Welcome to AppiTrak
+== Welcome to AppiTrak!
 
 appiTrak is a simple habit tracker that allows you to add your own 
 private habits to track as well as view habits trends over time. 
@@ -11,3 +11,5 @@ Feel free to use any code that inspires you.
 Visit the site and track away.
 
 www.appitrak.com
+
+-chris
