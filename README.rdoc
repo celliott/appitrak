@@ -1,7 +1,7 @@
-== Welcome to appiTrak!
+== Welcome to appitrak!
 
 
-appiTrak is a simple habit tracker that allows you to add your own 
+appitrak is a simple habit tracker that allows you to add your own 
 private habits to track as well as view habits trends over time. It 
 is a Rails app that is hosted on Heroku. 
 
