@@ -1,4 +1,4 @@
-== Welcome to AppiTrak!
+== Welcome to appiTrak!
 
 
 appiTrak is a simple habit tracker that allows you to add your own 
