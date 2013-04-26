@@ -1,13 +1,13 @@
 <div id="flash_container_habbit_type">
 	<div id="flash_message_habbit_type">
 	  <% if flash[:notice] %>
-	      <p class="notice"><%= flash[:notice] %></p>
+	      <p class="notice hide"><%= flash[:notice] %></p>
 	    <% end %>
 	  <% if flash[:error] %>
-	      <p class="error"><%= flash[:error] %></p>
+	      <p class="error hide"><%= flash[:error] %></p>
 	  <% end %>
 	  <% if flash[:alert] %>
-	      <p class="alert"><%= flash[:alert] %></p>
+	      <p class="alert hide"><%= flash[:alert] %></p>
 	  <% end %>
 	</div>
 </div>

@@ -545,7 +545,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   bubbleInner.style.width = '350px';
   bubbleInner.style.margin = isIpad ? '0 0 0 82px' : '0 auto';
   bubbleInner.style.border = '2px solid #fff';
-  bubbleInner.style.padding = '20px 20px 37px 10px';
+  bubbleInner.style.padding = '20px 20px 20px 10px';
   bubbleInner.style.WebkitBorderRadius = '8px';
   bubbleInner.style.WebkitBoxShadow = '0 0 8px rgba(0, 0, 0, 0.7)';
   bubbleInner.style.WebkitBackgroundSize = '100% 8px';
@@ -581,11 +581,11 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   bubbleInner.insertBefore(icon, bubbleInner.firstChild);
 
   var arrow = document.createElement('div');
-  arrow.style.backgroundImage = 'url(img/arrow.png)';
+  arrow.style.backgroundImage = 'url(/images/arrow.png)';
   arrow.style.width = '25px';
   arrow.style.height = '19px';
   arrow.style.position = 'absolute';
-  arrow.style.left = '115px';
+  arrow.style.left = '95px';
   if (isIpad) {
     arrow.style.WebkitTransform = 'rotate(180deg)';
     arrow.style.top = '-19px';
@@ -604,7 +604,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   close.style.height = '16px';
   close.style.border = '10px solid transparent';
   close.style.background =
-      'url(img/close.png) no-repeat';
+      'url(images/close.png) no-repeat';
   bubbleInner.appendChild(close);
 
   return bubble;

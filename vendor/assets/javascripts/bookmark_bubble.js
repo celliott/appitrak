@@ -604,7 +604,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   close.style.height = '16px';
   close.style.border = '10px solid transparent';
   close.style.background =
-      'url(img/close.png) no-repeat';
+      'url(images/close.png) no-repeat';
   bubbleInner.appendChild(close);
 
   return bubble;

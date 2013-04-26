@@ -43,7 +43,7 @@ class HabitsController < ApplicationController
       redirect_to root_url, notice: "#{@habit.name} has been added!"
     else
       flash[:notice] = '#{@habit.name} not created.'
-      render("create")
+      render("habit_types")
     end
   end
   

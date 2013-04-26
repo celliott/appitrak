@@ -1,16 +1,22 @@
 $('.habit_types_container').html("<%= j render(:partial => 'habit_types') %>");
 
 
-jQuery(document).ready(function() {
+$(document).ready(function() {
+
+  // gracefully fades the notice in and out
   timer = setTimeout(fadeOut_habbit_type, 2500);
-  jQuery("#flash_message_habbit_type").hide();
-  $("#flashMessage").removeClass('hide');
-  jQuery("#flash_message_habbit_type").fadeIn(500);
+  $("#flash_message_habbit_type").hide();
+  $("#flash_message_habbit_type p").removeClass('hide');
+  $("#flash_message_habbit_type").fadeIn(500);
+  
+  // dismisses ios keyboard after adding new habit_type  
+  $("#habit_type_name").blur();                          
   
 });
 
+// part of the graceful notice fade
 function fadeOut_habbit_type() {
-  jQuery("#flash_message_habbit_type").fadeOut(500);
+  $("#flash_message_habbit_type").fadeOut(500);
 };
 
 

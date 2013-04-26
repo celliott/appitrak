@@ -2,13 +2,15 @@
 <html>
 <head>
   <title>Appitrak</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag 'iphone' if mobile_device_iphone? %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "bookmark_bubble" if mobile_device_iphone? %>
+  <%= javascript_include_tag "bookmark_bubble_ipad" if mobile_device_ipad? %>
   <%= csrf_meta_tags %>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />  
-  <meta name="viewport" content="width=device-width, initial-scale=.6, user-scalable=0" />
-  <meta name="viewport" id="vp" content="initial-scale=.6,user-scalable=no,maximum-scale=1" media="(device-height: 568px)" />
+  <meta name="viewport" id="vp" content="initial-scale=.75,user-scalable=no,maximum-scale=1" media="(device-height: 568px)" />
   <link rel="apple-touch-icon-precomposed" href="/images/habit_icon.png"/>
 </head>
 <body>
@@ -45,16 +47,16 @@
 	</div>
 <% end %>
 
-	<div class="hide" id="flashContainer">
-		<div id="flashMessage">
+	<div id="flashContainer">
+		<div style="display: none;" id="flashMessage">
 		  <% if flash[:notice] %>
-		      <p class="notice"><%= flash[:notice] %></p>
+		      <p class="notice hide"><%= flash[:notice] %></p>
 		    <% end %>
 		  <% if flash[:error] %>
-		      <p class="error"><%= flash[:error] %></p>
+		      <p class="error hide"><%= flash[:error] %></p>
 		  <% end %>
 		  <% if flash[:alert] %>
-		      <p class="alert"><%= flash[:alert] %></p>
+		      <p class="alert hide"><%= flash[:alert] %></p>
 		  <% end %>
 		</div>
 	</div>

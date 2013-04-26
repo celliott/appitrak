@@ -16,7 +16,6 @@
 //= require raphael
 //= require morris
 //= require jstz.min
-//= require bookmark_bubble
 //= require bubble
 //= require_tree .
 
@@ -26,7 +25,7 @@ $(document).ready(function() {
   // fades flash message
   timer = setTimeout(fadeOut, 2500);
   $("#flashMessage").hide();
-  $("#flashMessage").removeClass('hide');
+  $("#flashMessage p").removeClass('hide');
   $("#flashMessage").fadeIn(500);
 
   // set's timezone in a cookie 
@@ -43,23 +42,11 @@ $(document).ready(function() {
       window.location = $(this).attr("href");
     }
   });
-  
-  // dismisses ios keyboard after adding new habit_type 
-	  function isTextInput(node) {
-	    return ['INPUT', 'TEXTAREA'].indexOf(node.nodeName) !== -1;
-	  }
-	
-		document.addEventListener('touchstart', function(e) {
-		    if (!isTextInput(e.target) && isTextInput(document.activeElement)) {
-		        document.activeElement.blur();
-		    }
-		}, false);
-  
 });
 
 // funcion to fadout flash message
 function fadeOut() {
-  jQuery("#flashMessage").fadeOut(500);
+  $("#flashMessage").fadeOut(500);
 }
 
 // resizes trend_graph on window resize

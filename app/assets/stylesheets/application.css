@@ -10,7 +10,7 @@
  *
  *= require_self
  *= require colorbox
- *= require_tree .
+ *= require morris
  */
 
 * {
@@ -272,11 +272,14 @@ input[type=submit]:hover, .button:hover{
   color:#000 !important;
   box-shadow: none;
   text-shadow: none;
+  *-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .text-button input[type=submit]:hover{
   color: #cd1d1d !important;
   cursor: pointer;
+  box-shadow: none;
+  text-shadow: none;
 }
 
 .chosen_yes input[type=submit]{
@@ -291,11 +294,16 @@ input[type=submit]:hover, .button:hover{
 	position: relative;
 	top: -25px;
 	text-align: left;
+	box-shadow: none;
+  text-shadow: none;
+  *-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .chosen_yes input[type=submit]:hover{
   color: #cd1d1d !important;
   cursor: pointer;
+  box-shadow: none;
+  text-shadow: none;
 }
 
 .chosen input[type=submit]{
@@ -387,7 +395,6 @@ input[type=submit]:hover, .button:hover{
 }
 
 .notice {
-  -webkit-opacity: .85;	
   color: #fff;
   font-size: 140%;
 	font-weight: bold;
@@ -413,7 +420,6 @@ input[type=submit]:hover, .button:hover{
 }
 
 .error {
-  -webkit-opacity: .85;
   color: #fff;
   font-size: 140%;
 	font-weight: bold;
@@ -440,7 +446,6 @@ input[type=submit]:hover, .button:hover{
 }
 
 .alert {
-  -webkit-opacity: .80;	
   color: #fff;
   font-size: 140%;
 	font-weight: bold;
