@@ -25,8 +25,14 @@ class HabitTypesController < ApplicationController
 	    @habit = Habit.create!(params[:habit_type].merge(:user_id => current_user_id))
 	    @user = User.find(current_user_id)
 	    @habit = Habit.where('name=? AND user_id=?', params[:habit_type][:name].to_s.downcase, current_user_id)
-	    @user.habits << @habit
-	    flash[:notice] = "#{params[:habit_type][:name]} has been created and selected!"
+	    if @habit.exists?
+	      flash[:notice] = "#{params[:habit_type][:name]} has been created and selected!"   
+	      @user.habits << @habit
+      else
+        flash[:error] = '#{params[:habit_type][:name]} was not created.'
+        redirect_to habit_types_url
+      end
+	    
     respond_to do |format|
       format.html { redirect_to habit_types_url}
       format.js
