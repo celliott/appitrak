@@ -134,11 +134,13 @@ a:hover {
 }  
 #habit_chart_content {
   margin: 40px 0 0 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 #habit_chart {
   width: 100%;
   margin: 40px 0 0 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 #chart_refresh { 
