@@ -1,3 +1,4 @@
+require 'date_extensions'
 class HabitsController < ApplicationController
   
   before_filter :confirm_logged_in
@@ -63,5 +64,6 @@ class HabitsController < ApplicationController
     flash[:notice] = "Habit removed."
     redirect_to(:action => 'list')
   end
+  
   
 end

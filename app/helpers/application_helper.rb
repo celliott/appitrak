@@ -5,5 +5,9 @@ module ApplicationHelper
         raw "<div class='errors'>"+@user.errors[field].first+"</div><br>"
     end
   end
+  
+  def today_in_zone
+    ::Time.find_zone!(cookies[:time_zone]).today
+  end
 
 end

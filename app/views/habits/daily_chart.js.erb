@@ -17,6 +17,20 @@ $(document).ready(function() {
 				},
   	<% end %>	
 		],
+		xLabelFormat: function(d) {
+      <% if cookies[:trend] == '4' || cookies[:trend] == '5' || cookies[:trend] == '6' %>
+          var trend = <%= cookies[:trend] %>;
+          var current_year = new Date().getFullYear();
+          if(d.getFullYear() == current_year && trend == 5 || d.getFullYear() == current_year && trend == 4){
+            return (d.getMonth()+1)+'/'+d.getDate();
+          }else {
+            return (d.getMonth()+1)+'/'+d.getDate()+'/'+d.getFullYear();
+					}
+      <% else %>
+      return (d.getMonth()+1)+'/'+d.getDate(); 
+      <% end %>
+    },
+    xLabel: 'day',
 	  xkey: 'd',
 	  ykeys: [
 	    <% @habits.each do |habit| %>
@@ -26,9 +40,7 @@ $(document).ready(function() {
 	      <% end %> 
 	    <% end %>
 	  ],
-	  xLabelFormat: function(d) {
-      return (d.getMonth()+1)+'/'+d.getDate(); 
-    },
+	  
 	  labels: [
 	    <% @habits.each do |habit| %>
 	      <% @habit_types = UsersHabit.where('user_id=? AND habit_id=?', @current_user_id, habit.id).count %>
@@ -37,7 +49,7 @@ $(document).ready(function() {
 	      <% end %>  
 	    <% end %>
 	  ],	
-	  xLabel: 'day',	  
-	  hideHover: 'auto',
+	  	  
+	  hideHover: 'auto'
 	});
 });
