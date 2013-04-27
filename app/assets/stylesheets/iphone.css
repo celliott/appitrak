@@ -1,7 +1,11 @@
 /* iphone fixes */
 
+.menu ul {
+  padding: 15px 2px 0 10px; 
+}
+
 .menu ul li{
-  font-size: 80%; 
+  font-size: 140%; 
 }
 
 .header {
@@ -13,6 +17,32 @@
   font-size: 95%;
   margin: -3px 0 0 -15px; 
 }
+
+#main_content {
+  min-width: 50%;
+  margin: 40px auto 0 auto;
+}
+
+#main_description {
+  font-size: 120%;
+  margin: 10px 0 50px 0;
+}
+
+#main_content_left {
+  display: block; 
+  margin: 20px 0 0 0;
+  width: 100%;
+  float:left;
+}
+
+#main_content_right {
+  display: block; 
+  padding: 0 0 0 0px;
+  margin: 0 0 0 0;
+  width: 100%;
+  float:left;
+}
+
 
 /* inputs and buttons */
 
