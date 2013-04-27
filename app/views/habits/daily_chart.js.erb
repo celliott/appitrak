@@ -6,11 +6,14 @@ $(document).ready(function() {
 	  element: 'habit_chart',
 	  data: [
 	  <% @start_date.upto(@end_date).each do |date| %>
+	    <% puts start_date = date.to_datetime.change(:offset => "00:00:00 +0000") %>
+	    <% puts 'sjsjsuhsu' %>
 	    <% if Time.now.in_time_zone(cookies[:time_zone]).to_datetime.strftime("%H") < "04"%>
-	      <% start_date = date.to_datetime.utc.change({:hour => 4 , :min => 0 , :sec => 0 }) - 1 %>
+	    
+	      <% start_date = date.to_datetime.change(:offset => "00:00:00 +0000") %>
 	      <% end_date = start_date.tomorrow%>
 			<% else %>
-			  <% start_date = date.to_datetime.utc.change({:hour => 4 , :min => 0 , :sec => 0 }) %>
+			  <% start_date = date.to_datetime.change(:offset => "00:00:00 +0000") %>
 			  <% end_date = start_date.tomorrow%>
 			<% end %>
       	{ d: '<%= start_date.to_date%>',
