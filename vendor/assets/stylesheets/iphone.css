@@ -1,7 +1,11 @@
 /* iphone fixes */
 
+.menu ul {
+  padding: 15px 2px 0 10px; 
+}
+
 .menu ul li{
-  font-size: 80%; 
+  font-size: 140%; 
 }
 
 .header {
