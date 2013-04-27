@@ -6,10 +6,19 @@ $(document).ready(function() {
 	  element: 'habit_chart',
 	  data: [
 	  <% @start_date.upto(@end_date).each do |date| %>
-      	{ d: '<%= date %>',
+	    <% if Time.now.in_time_zone(cookies[:time_zone]).to_datetime.strftime("%H") < "04"%>
+	      <% start_date = date.to_datetime.utc.change({:hour => 4 , :min => 0 , :sec => 0 }) - 1 %>
+	      <% end_date = date.to_datetime.utc.change({:hour => 4 , :min => 0 , :sec => 0 }) %>
+	      <% display_date = date.to_date%>
+			<% else %>
+			  <% start_date = date.to_datetime.utc.change({:hour => 4 , :min => 0 , :sec => 0 }) -1 %>
+			  <% end_date = date.to_datetime.utc.change({:hour => 4 , :min => 0 , :sec => 0 }) %>
+			  <% display_date = date.to_date %>
+			<% end %>
+      	{ d: '<%= display_date%>',
       <% @habits.each do |habit| %>
         <% @habit_types = UsersHabit.where('user_id=? AND habit_id=?', @current_user_id, habit.id).count %>
-      	<% daily_count = HabitsUser.where("user_id=? AND habit_id = ? AND created_at BETWEEN ? AND ?", @current_user_id, habit.id, date, date + 1).count %>
+      	<% daily_count = HabitsUser.where("user_id=? AND habit_id = ? AND created_at BETWEEN ? AND ?", @current_user_id, habit.id, start_date, end_date).count %>
       	  <%if @habit_types > 0 %>
    				  h<%= habit.id%>: <%= daily_count %>,
 				  <% end %>
@@ -49,6 +58,7 @@ $(document).ready(function() {
 	      <% end %>  
 	    <% end %>
 	  ],	
+	  parseTime: 'false',
 	  	  
 	  hideHover: 'auto'
 	});
