@@ -46,6 +46,9 @@ body {
 	background: #505050 url('/images/clock.png') no-repeat center;
 }
 
+h1 {
+}
+
 h2 {
   color: #cd1d1d;
   font-weight: normal;
@@ -88,7 +91,7 @@ a:hover {
 /* page content */
 
 #main_content {
-  min-width: 50%;
+  width: 95%;
   margin: 40px auto 0 auto;
 }
 
@@ -99,38 +102,57 @@ a:hover {
 
 #main_content_left {
   display: block; 
-  margin: 20px 0 0 0;
-  *width: 90%;
+  margin: 0 0 0 0;
+  width: 45%;
   float:left;
 }
 
 #main_content_right {
   display: block; 
-  *padding: 0 0 0 40px;
+  padding: 0 0 0 0;
   margin: 0 0 0 0;
-  *width: 90%;
+  width: 45%;
   float:right;
+}
+
+#page_item {
+  display: block;
+  background-color: #f8f8f8;
+  padding: 20px 30px 20px 30px;
+  margin: 0 0 30px 0;
+	border: solid 1px #E0E0E0;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
 }
 
 #page_description {
   font-size: 120%;
   margin: 10px 0 0px 0;
+  display: block;
+  background-color: #E0E0E0;
+  padding: 20px;
+	border: solid 1px #C8C8C8;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-filter: drop-shadow(-1px -1px 1px rgba(0,0,0,.1));
+}
+
+#page_description h3{
+  color: #a41717;
+  text-shadow: 1px 1px #faeaea;
+  margin: 0 0 -10px 0;
 }
 
 .main_image { 
-  margin: 40px auto 50px auto;
+  margin: 30px auto 20px auto;
   max-width: 100%;
   -webkit-filter: drop-shadow(2px 2px 10px rgba(0,0,0,.35));
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 
-.main_image_iphone {
-  margin: 40px auto 50px auto;
-  max-width: 100%;
-  -webkit-filter: drop-shadow(2px 2px 10px rgba(0,0,0,.35));
-  border-radius:6px;
-}  
 #habit_chart_content {
   margin: 40px 0 0 0;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
