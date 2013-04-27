@@ -16,7 +16,6 @@
 //= require raphael
 //= require morris
 //= require jstz.min
-//= require bubble
 //= require_tree .
 
 //<![CDATA[

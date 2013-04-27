@@ -754,8 +754,8 @@
     Line.prototype.hoverContentForRow = function(index) {
       var content, j, row, y, _i, _len, _ref;
       row = this.data[index];
-      label_year = new Date(row.label).getFullYear();
-      label = row.label.replace(label_year+'-', "").replace('-', "/");
+      label = new Date(row.label);
+      label = (label.getMonth()+1)+'/'+(label.getDate());
       content = "<div class='morris-hover-row-label'>" + label + "</div>";
       _ref = row.y;
       for (j = _i = 0, _len = _ref.length; _i < _len; j = ++_i) {
