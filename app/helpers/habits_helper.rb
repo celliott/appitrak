@@ -2,11 +2,7 @@ require 'date_extensions'
 
 module HabitsHelper
   def habits_chart_data    
-    if Time.now.in_time_zone(cookies[:time_zone]).strftime('%T') > '20:00:00'
-      today = Time.now.in_time_zone(cookies[:time_zone]).to_datetime
-    else
-      today = Time.now.in_time_zone(cookies[:time_zone]).to_datetime
-    end
+    today = Time.now.in_time_zone(cookies[:time_zone]).to_datetime
     if cookies[:trend] == '1'
       @start_date = Time.now.in_time_zone(cookies[:time_zone]).beginning_of_week.to_datetime
       @end_date = today
