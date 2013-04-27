@@ -5,7 +5,7 @@
     <%= f.hidden_field :habit_time, :value => Time.now.in_time_zone(cookies[:time_stamp]).to_datetime %>
   
     <div class="form-buttons">
-      <%= submit_tag(habit.name) %>
+      <%= submit_tag habit.name, :class=> "button"%>
     </div>
   <% end %>
 <% end %> 

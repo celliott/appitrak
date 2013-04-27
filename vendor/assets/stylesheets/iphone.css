@@ -1,5 +1,10 @@
 /* iphone fixes */
 
+body {
+  font-size: 490% !important;
+
+}
+
 .menu ul {
   padding: 15px 2px 0 10px; 
 }
@@ -9,12 +14,14 @@
 }
 
 .header {
+  font-size: 490% !important;
+
   height: 20px;
 	background-size: 55%;
 }
 
 .header p {
-  font-size: 95%;
+  font-size: 490% !important;
   margin: -3px 0 0 -15px; 
 }
 

@@ -4,7 +4,7 @@
   <%= form_for(:habit_type, :url => {:action => 'create'}, remote: true, :html => {:autocapitalize => 'none'})  do |f| %>
     <%= render(:partial => 'form', :locals => {:f => f} ) %>
     <% if !mobile_device_iphone? %>
-      <div><%= submit_tag "create", :id => "add_habit_type" %></div>
+      <div><%= submit_tag "create", :id => "add_habit_type", :class=> "button" %></div>
     <% end %>
   <% end %>
 
