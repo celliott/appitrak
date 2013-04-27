@@ -28,6 +28,7 @@ body {
 	color: #505050;
 	font-size: 75%;
 	-webkit-opacity: .99;
+	background: url('/images/main_bg.png');
 }
 
 .container{
@@ -37,16 +38,19 @@ body {
 
 .header{
   color: #fff;
-  font-size: 200%;
+  font-size: 270%;
 	font-weight: normal;
 	text-decoration: none;
-	padding: 40px 20px;
-	height: 30px;
+	padding: 30px 40px;
+	height: 40px;
 	display:block;
 	background: #505050 url('/images/clock.png') no-repeat center;
 }
 
 h1 {
+  font-size: 260%;
+  text-shadow: 20px 20px #fff;
+  letter-spacing: -1px;
 }
 
 h2 {
@@ -69,7 +73,13 @@ a:hover {
 
 .menu {
   display: block;
-  margin: 20px 0 0 20px;
+  height:50px;
+  margin: 0;
+  background: url('/images/menu.png');
+}
+
+.menu ul {
+  padding: 17px 2px 0 10px; 
 }
 
 .menu ul li{
@@ -115,9 +125,10 @@ a:hover {
   float:right;
 }
 
-#page_item {
+#main_item {
   display: block;
   background-color: #f8f8f8;
+  background: url('/images/page_item_bg.png');
   padding: 20px 30px 20px 30px;
   margin: 0 0 30px 0;
 	border: solid 1px #E0E0E0;
@@ -126,7 +137,7 @@ a:hover {
 	border-radius: 4px;
 }
 
-#page_description {
+#main_item_description {
   font-size: 120%;
   margin: 10px 0 0px 0;
   display: block;
@@ -139,14 +150,15 @@ a:hover {
 	-webkit-filter: drop-shadow(-1px -1px 1px rgba(0,0,0,.1));
 }
 
-#page_description h3{
-  color: #a41717;
-  text-shadow: 1px 1px #faeaea;
+#main_item_description h3{
+  font-size: 130%;
+  color: #505050;
+  text-shadow: 1px 1px #f8f8f8;
   margin: 0 0 -10px 0;
 }
 
 .main_image { 
-  margin: 30px auto 20px auto;
+  margin: 30px auto 10px auto;
   max-width: 100%;
   -webkit-filter: drop-shadow(2px 2px 10px rgba(0,0,0,.35));
   border-bottom-left-radius: 5px;
