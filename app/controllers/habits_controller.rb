@@ -1,4 +1,3 @@
-require 'date_extensions'
 class HabitsController < ApplicationController
   
   before_filter :confirm_logged_in
