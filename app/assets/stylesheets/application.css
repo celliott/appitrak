@@ -82,9 +82,9 @@ h1 {
 }
 
 h2 {
-  color: #cd1d1d;
-  font-weight: normal;
-  font-size: 160%;
+  font-size: 220%;
+  text-shadow: 1px 1px #fff;
+  letter-spacing: -1px;
 }
 
 a {

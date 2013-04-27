@@ -1,9 +1,9 @@
 <div class="user_new">
-  <h1>Create Account</h1>
+  <h2>create account</h2>
   <%= form_for(:user, :url => {:action => 'create'}) do |f| %>
     <%= render(:partial => 'form', :locals => {:f => f} ) %>
     <div class="form-buttons">
-      <%= submit_tag "Create Account", :class=> "button" %>
+      <%= submit_tag "create account", :class=> "button" %>
       
       <% end %>
     </div>
