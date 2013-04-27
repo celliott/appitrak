@@ -44,7 +44,7 @@
 	  <ul>
 	      <li class="<%= "selected" if params[:controller] == "main" %>"><%= link_to("home", root_url) %></li><li>:</li>
 	      <li class="<%= "selected" if params[:action] == "login" %>"><%= link_to("login", :controller => 'login') %></li><li>:</li>
-	      <li class="<%= "selected" if params[:action] == "new" %>"><%= link_to("sign up", :controller => 'signup') %></li>	        
+	      <li class="<%= "selected" if params[:action] == "new" || params[:action] == "create" %>"><%= link_to("sign up", :controller => 'signup') %></li>	        
 	  </ul> 
 	</div>
 <% end %>
