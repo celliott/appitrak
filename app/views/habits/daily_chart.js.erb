@@ -8,17 +8,15 @@ $(document).ready(function() {
 	  <% @start_date.upto(@end_date).each do |date| %>
 	    <% if Time.now.in_time_zone(cookies[:time_zone]).to_datetime.strftime("%H") < "04"%>
 	      <% start_date = date.to_datetime.utc.change({:hour => 4 , :min => 0 , :sec => 0 }) - 1 %>
-	      <% end_date = date.to_datetime.utc.change({:hour => 4 , :min => 0 , :sec => 0 }) %>
-	      <% display_date = date.to_date%>
+	      <% end_date = start_date.tomorrow%>
 			<% else %>
-			  <% start_date = date.to_datetime.utc.change({:hour => 4 , :min => 0 , :sec => 0 }) -1 %>
-			  <% end_date = date.to_datetime.utc.change({:hour => 4 , :min => 0 , :sec => 0 }) %>
-			  <% display_date = date.to_date %>
+			  <% start_date = date.to_datetime.utc.change({:hour => 4 , :min => 0 , :sec => 0 }) %>
+			  <% end_date = start_date.tomorrow%>
 			<% end %>
-      	{ d: '<%= display_date%>',
+      	{ d: '<%= start_date.to_date%>',
       <% @habits.each do |habit| %>
         <% @habit_types = UsersHabit.where('user_id=? AND habit_id=?', @current_user_id, habit.id).count %>
-      	<% daily_count = HabitsUser.where("user_id=? AND habit_id = ? AND created_at BETWEEN ? AND ?", @current_user_id, habit.id, start_date, end_date).count %>
+      	<% daily_count = HabitsUser.where("user_id=? AND habit_id = ? AND habit_time BETWEEN ? AND ?", @current_user_id, habit.id, start_date, end_date).count %>
       	  <%if @habit_types > 0 %>
    				  h<%= habit.id%>: <%= daily_count %>,
 				  <% end %>

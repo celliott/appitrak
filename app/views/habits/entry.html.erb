@@ -2,6 +2,7 @@
 <% @habits.each do |habit| %>
   <%= form_for(:add, :url => {:action => 'add'}) do |f| %>
     <%= f.hidden_field :habit, :value => habit.id %>
+    <%= f.hidden_field :habit_time, :value => Time.now.in_time_zone(cookies[:time_stamp]).to_datetime %>
   
     <div class="form-buttons">
       <%= submit_tag(habit.name) %>

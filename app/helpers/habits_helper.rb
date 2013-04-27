@@ -1,15 +1,16 @@
 module HabitsHelper
   def habits_chart_data    
+  puts Time.now.in_time_zone(cookies[:time_zone]).to_datetime.utc
+  puts 'ssss'
     if Time.now.in_time_zone(cookies[:time_zone]).to_datetime.strftime("%H") < "04"
-      today = Time.now.in_time_zone(cookies[:time_zone]).beginning_of_day.to_datetime
-      #today = today +1
+      today = Time.now.in_time_zone(cookies[:time_zone]).to_datetime
     else
-      today = Time.now.in_time_zone(cookies[:time_zone]).beginning_of_day.to_datetime
-      
+      today = Time.now.in_time_zone(cookies[:time_zone]).to_datetime.utc
     end
     
+      today = Time.now.in_time_zone(cookies[:time_zone]).to_datetime    
     if cookies[:trend] == '1'
-      @start_date = Time.now.in_time_zone(cookies[:time_zone]).beginning_of_week.beginning_of_day.to_datetime.utc.change({:hour => 4 , :min => 0 , :sec => 0 })
+      @start_date = Time.now.in_time_zone(cookies[:time_zone]).beginning_of_week.to_datetime
       @end_date = today
     elsif cookies[:trend] == '2'
       @start_date = 1.week.ago.beginning_of_week.to_datetime

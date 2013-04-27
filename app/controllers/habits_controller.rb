@@ -50,6 +50,9 @@ class HabitsController < ApplicationController
   def add
     @habit = Habit.find(params[:add][:habit])
     @habit.users << User.find(current_user_id)
+    @habit_user = HabitsUser.where('user_id = ? AND habit_id=?', current_user_id, @habit).last
+    @habit_user.habit_time = Time.now.in_time_zone(cookies[:time_stamp]).to_datetime
+    @habit_user.save
     flash[:notice] = "#{@habit.name} recorded!"
     redirect_to(:action => 'entry')
   end
@@ -63,6 +66,5 @@ class HabitsController < ApplicationController
     flash[:notice] = "Habit removed."
     redirect_to(:action => 'list')
   end
-  
   
 end
