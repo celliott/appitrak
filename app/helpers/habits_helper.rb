@@ -1,5 +1,3 @@
-require 'date_extensions'
-
 module HabitsHelper
   def habits_chart_data    
     today = Time.now.in_time_zone(cookies[:time_zone]).to_datetime

@@ -9,7 +9,7 @@ $(document).ready(function() {
       	{ d: '<%= date %>',
       <% @habits.each do |habit| %>
         <% @habit_types = UsersHabit.where('user_id=? AND habit_id=?', @current_user_id, habit.id).count %>
-      	<% daily_count = HabitsUser.where("user_id=? AND habit_id = ? AND created_at BETWEEN ? AND ?", @current_user_id, habit.id, date, date+1).count %>
+      	<% daily_count = HabitsUser.where("user_id=? AND habit_id = ? AND created_at BETWEEN ? AND ?", @current_user_id, habit.id, date, date + 1).count %>
       	  <%if @habit_types > 0 %>
    				  h<%= habit.id%>: <%= daily_count %>,
 				  <% end %>
