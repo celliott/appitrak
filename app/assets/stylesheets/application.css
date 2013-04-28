@@ -47,11 +47,15 @@ body {
 	padding: 30px 40px;
 	height: 40px;
 	display:block;
-	background: #505050 url('/images/clock.png') no-repeat center;
+	background-image: url('/images/clock.png'), url('/images/header_bg.png');
+	background-position: center, left top;
+  background-repeat: no-repeat, repeat;
 }
 
 .header p{
-  font-size: 270%;
+  font-size: 300%;
+  text-shadow: -1px -1px 2px #000;
+  margin: -2px 0 0 0;
 }
 
 .footer {
@@ -163,7 +167,7 @@ a:hover {
   background-color: #f8f8f8;
   background: url('/images/page_item_bg.png');
   padding: 20px 30px 20px 30px;
-  margin: 0 0 30px 0;
+  margin: 0 0 40px 0;
 	border: solid 1px #E0E0E0;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -175,6 +179,7 @@ a:hover {
   margin: 10px 0 0px 0;
   display: block;
   background-color: #E0E0E0;
+  background: url('/images/item_desc_bg.png');
   padding: 20px;
 	border: solid 1px #C8C8C8;
 	-webkit-border-radius: 4px;
