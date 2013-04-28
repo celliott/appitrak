@@ -64,12 +64,12 @@
 .button{
   display: block;
   width: 100%;
-  font-weight:normal;
+  font-weight:600;
   font-size: 180%;
   text-align: center;
 	padding: 12px 0 10px 0;
 	margin: 0 auto 15px auto;
-	color:#333;
+	color:#505050;
 	border:1px solid #bbb;
 	background: #dcdcdc;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#dcdcdc));
@@ -81,7 +81,7 @@
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 12px;
 	border-radius: 12px;
-	text-shadow: #fff 1px 1px 0px;
+	text-shadow: #fff 1px 1px 1px;
 	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2);
 	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2);
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2);
@@ -89,6 +89,15 @@
   -moz-box-sizing: border-box;
 }
 
+#habit_type_text_button {
+  font-size: 170%;
+  height: 30px;
+  margin: 0 5px 0 0;
+}
+
+#delete_text_button {
+  margin: 0 10px 5px -5px;
+}
 
 #trends_dropdown {
   font-size: 90%;

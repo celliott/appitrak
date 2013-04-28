@@ -91,6 +91,13 @@ h2 {
   letter-spacing: -1px;
 }
 
+h3 {
+  font-size: 180%;
+  color: #cd1d1d;
+  text-shadow: 0 0 #fff;
+  font-weight: bold;
+}
+
 a {
   text-decoration: none;
   color: #787878;
@@ -354,15 +361,15 @@ input[type=text], input[type=password] {
   background-image: none !important;
   border:none !important;
   box-shadow: none;
-  text-shadow: #fff 1px 1px;
+  text-shadow: #fff 2px 2px;
   text-align: left;
 }
 
 #delete_text_button {
   height: 20px;
   width:100%;
-  padding: 0 10px 0 0 ;
-	margin: 0 10px 0 0 ;
+  padding: 0 10px 0 0;
+	margin: 0 10px 0 0;
 	font-size: 120%;
   cursor: pointer;
   background:none !important;
@@ -467,7 +474,7 @@ input[type=text], input[type=password] {
 
 #flash_message_habbit_type {
   position: relative;
-  top: -204px;
+  top: -198px;
   left: -50%;
   width: 95%;
   margin: 0 auto 0 auto;
