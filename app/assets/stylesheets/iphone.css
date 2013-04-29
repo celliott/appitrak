@@ -1,7 +1,7 @@
 /* iphone fixes */
 
 .menu ul {
-  padding: 15px 2px 0 10px; 
+  padding: 16px 2px 0 10px; 
 }
 
 .menu ul li{
@@ -53,6 +53,11 @@
 
 #main_item {
   max-width:100%;
+}
+
+.main_image { 
+  width:100% !important;
+  max-width:140% !important;
 }
 
 /* inputs and buttons */
@@ -108,7 +113,7 @@
 
 #flash_message_habbit_type {
   position: relative;
-  top: -198px;
+  top: -206px;
   left: -50%;
   width: 95%;
   margin: 0 auto 0 auto;
