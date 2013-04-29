@@ -40,6 +40,13 @@ body {
   padding:  0 0 100px 0;
 }
 
+.container_narrow{
+  min-height: 100%;
+  width:50%;
+  margin: 0 auto 60px auto;
+  padding:  0 0 100px 0;
+}
+
 .header{
   color: #fff;
 	font-weight: normal;
