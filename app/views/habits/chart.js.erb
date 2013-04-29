@@ -5,16 +5,11 @@ $(document).ready(function() {
 	Morris.Line({
 	  element: 'habit_chart',
 	  data: [
-	  <% @start_date.upto(@end_date).each do |date| %>
-	    <% if Time.now.in_time_zone(cookies[:time_zone]).to_datetime.strftime("%H") < "04"%>
-	      <% start_date = date.to_datetime %>
+	    <% @start_date.upto(@end_date).each do |date| %>
+	      <% start_date = date.to_datetime.change(:offset => "00:00:00 +0000") %>
 	      <% end_date = start_date.tomorrow%>
-			<% else %>
-			  <% start_date = date.to_datetime %>
-			  <% end_date = start_date.tomorrow%>
-			<% end %>
       	{ d: '<%= start_date.to_date%>',
-      <% @habits.each do |habit| %>
+        <% @habits.each do |habit| %>
         <% @habit_types = UsersHabit.where('user_id=? AND habit_id=?', @current_user_id, habit.id).count %>
       	<% daily_count = HabitsUser.where("user_id=? AND habit_id = ? AND habit_time BETWEEN ? AND ?", @current_user_id, habit.id, start_date, end_date).count %>
       	  <%if @habit_types > 0 %>
