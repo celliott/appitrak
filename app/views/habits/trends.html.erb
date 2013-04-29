@@ -1,12 +1,12 @@
 <%= link_to "", 
-    {:action => 'daily_chart'}, 
-    id: "daily_charts", 
+    {:action => 'chart'}, 
+    id: "charts", 
     remote: true 
 %>
 
 <%= form_for(
- 			:daily_chart, 
- 			:url => {:action => 'daily_chart'}, 
+ 			:chart, 
+ 			:url => {:action => 'chart'}, 
  			:html => { :id => 'date_selectors' }, 
  			remote: true) do |f| 
 %>
@@ -25,7 +25,7 @@ totals for:
 			  <option value='6'>last 6 months</option>"
 			).html_safe, 
 			:'data-remote' => 'true', 
-			:'data-url' => url_for(:action => 'daily_chart'), 
+			:'data-url' => url_for(:action => 'chart'), 
 			:id => "trends_dropdown",
 			:onchange => 'setTrendCookie()'
 %>

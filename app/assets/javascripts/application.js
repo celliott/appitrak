@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.colorbox-min
 //= require raphael
 //= require morris
 //= require jstz.min

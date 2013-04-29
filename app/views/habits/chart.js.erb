@@ -1,4 +1,4 @@
-$('#habit_chart_content').html("<%= j render(:partial => 'daily_chart') %>");
+$('#habit_chart_content').html("<%= j render(:partial => 'chart') %>");
  
 $(document).ready(function() {
 	$("#trends_dropdown").val('<%= cookies[:trend] %>');
@@ -6,14 +6,11 @@ $(document).ready(function() {
 	  element: 'habit_chart',
 	  data: [
 	  <% @start_date.upto(@end_date).each do |date| %>
-	    <% puts start_date = date.to_datetime.change(:offset => "00:00:00 +0000") %>
-	    <% puts 'sjsjsuhsu' %>
 	    <% if Time.now.in_time_zone(cookies[:time_zone]).to_datetime.strftime("%H") < "04"%>
-	    
-	      <% start_date = date.to_datetime.change(:offset => "00:00:00 +0000") %>
+	      <% start_date = date.to_datetime %>
 	      <% end_date = start_date.tomorrow%>
 			<% else %>
-			  <% start_date = date.to_datetime.change(:offset => "00:00:00 +0000") %>
+			  <% start_date = date.to_datetime %>
 			  <% end_date = start_date.tomorrow%>
 			<% end %>
       	{ d: '<%= start_date.to_date%>',

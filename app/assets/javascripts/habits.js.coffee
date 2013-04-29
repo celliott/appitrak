@@ -3,5 +3,5 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(document).ready ->
-  $('#daily_charts').click()
+  $('#charts').click()
   $('#habit_types').click()

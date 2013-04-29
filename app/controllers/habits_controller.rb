@@ -13,7 +13,7 @@ class HabitsController < ApplicationController
     end
   end
   
-  def daily_chart
+  def chart
     @current_user_id = current_user_id
     daily_habits = HabitsUser.where("user_id=?", @current_user_id).collect {|i| i.habit_id}
     @habits = Habit.order("name ASC").where(:id => daily_habits)

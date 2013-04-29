@@ -10,7 +10,7 @@ module HabitsHelper
     
       today = Time.now.in_time_zone(cookies[:time_zone]).to_datetime    
     if cookies[:trend] == '1'
-      @start_date = Time.now.in_time_zone(cookies[:time_zone]).beginning_of_week.to_datetime
+      @start_date = Time.now.in_time_zone(cookies[:time_zone]).beginning_of_week(start_day = :sunday).to_datetime
       @end_date = today
     elsif cookies[:trend] == '2'
       @start_date = 1.week.ago.beginning_of_week.to_datetime
