@@ -545,7 +545,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   bubbleInner.style.width = '350px';
   bubbleInner.style.margin = isIpad ? '0 0 0 82px' : '0 auto';
   bubbleInner.style.border = '2px solid #fff';
-  bubbleInner.style.padding = '17px 20px 20px 10px';
+  bubbleInner.style.padding = '17px 20px 17px 10px';
   bubbleInner.style.WebkitBorderRadius = '8px';
   bubbleInner.style.WebkitBoxShadow = '0 0 8px rgba(0, 0, 0, 0.7)';
   bubbleInner.style.WebkitBackgroundSize = '100% 8px';
@@ -560,10 +560,10 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   // The "Add to Home Screen" text is intended to be the exact same text
   // that is displayed in the menu of Mobile Safari.
   if (this.getIosVersion_() >= this.getVersion_(4, 2)) {
-    bubbleInner.innerHTML = '<p class="bubble">To install appitrak: ' +
+    bubbleInner.innerHTML = '<p class="bubble">To install habitrak: ' +
         'tap on the arrow and then <b>\'Add to Home Screen\'</p></b>';
   } else {
-    bubbleInner.innerHTML = '<p class="bubble">To install appitrak: ' +
+    bubbleInner.innerHTML = '<p class="bubble">To install habitrak: ' +
         'tap <b style="font-size:15px">+</b> and then ' +
         '<b>\'Add to Home Screen\'</b></p>';
   }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>appitrak</title>
+  <title>habitrak</title>
   <%= stylesheet_link_tag    "application" %>
   <%= stylesheet_link_tag 'iphone' if mobile_device_iphone? %>
   <%= javascript_include_tag "bubble" if mobile_device_iphone? %>
@@ -19,7 +19,7 @@
 <body>
 
 <%= link_to(root_url) do%>
-<div class="header"><p>appitrak</p></div>
+<div class="header"><p>habitrak</p></div>
 <% end %>
 <% if @show_menu %>
 	<div class="main menu">
@@ -84,7 +84,7 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-40050702-1', 'appitrak.com');
+  ga('create', 'UA-40050702-1', 'habitrak.com');
   ga('send', 'pageview');
 
 </script>
