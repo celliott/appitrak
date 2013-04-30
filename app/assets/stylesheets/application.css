@@ -16,6 +16,7 @@
 	margin:0;
 	padding:0;
 	outline-width: 0;
+	cursor: default;
 }
 
 body {
@@ -28,7 +29,6 @@ body {
 	text-align: left;
 	color: #505050;
 	font-size: 75%;
-	-webkit-opacity: .99;
 	background: url('/images/main_bg.png');
 	margin: 0 0 40px 0; 
 }
@@ -106,9 +106,17 @@ h3 {
   margin: 0 0 8px 0
 }
 
+h4 {
+  font-size: 160%;
+  text-shadow: 1px 1px #fff;
+  letter-spacing: -1px;
+  margin: 0 0 8px 0
+}
+
 a {
   text-decoration: none;
   color: #787878;
+  cursor: pointer;
 }
 
 a:hover {
@@ -139,6 +147,11 @@ a:hover {
 }
 
 .selected a {
+  font-weight: bold;
+  color: #cd1d1d;
+}
+
+.selected {
   font-weight: bold;
   color: #cd1d1d;
 }
@@ -245,11 +258,15 @@ a:hover {
 }
 
 .habit{
-  margin: 80px 0 0 0;
+  margin: 40px 0 0 0;
 }
 
 .habit_types {
-  margin: 80px 0 0 0;
+  margin: 40px 0 0 0;
+}
+
+.habit_types h3{
+  text-align: center;
 }
 
 .habit_types_container {
@@ -261,14 +278,20 @@ a:hover {
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	*-webkit-filter: drop-shadow(-1px -1px 1px #E0E0E0);
+	-webkit-filter: drop-shadow(-1px -1px 1px #E0E0E0);
 }
-.habit_types ul li{
-  font-size: 120%;
-  margin: 0 auto 0 auto;
-  display: block;
-  padding: 0 0 10px 0;
+
+#page_description {
+  width: 100%;
+  text-align: center;
+  margin: 0 0 30px 0;
 }
+
+#page_description p {
+  width: 100%;
+  font-size: 140%;
+}
+
 .user_new{
   text-align: center;
   margin: 30px 0 0 0;
@@ -282,14 +305,6 @@ a:hover {
   display: none;
 }
 
-.habit_select_left{ 
-  width:80%;
-}
-
-.habit_select_right{ 
-  width:20%;
-}
-
 /* inputs and buttons */
 input[type=text], input[type=password] {
   width: 100%;
@@ -300,6 +315,7 @@ input[type=text], input[type=password] {
 	background: #fff;
 	box-sizing: border-box;
   -moz-box-sizing: border-box;
+  cursor: auto;
 }
 
 .button{
@@ -358,19 +374,8 @@ input[type=text], input[type=password] {
 }
 
 #habit_type_text_button {
-  font-weight: bold;
-  height: 20px;
-  *width:100%;
-  font-size: 90%;
-  padding: 0 0 10px 0 ;
-	margin: 0 10px 0 0 ;
-	font-size: 140%;
-  background:none !important;
-  background-image: none !important;
-  border:none !important;
-  box-shadow: none;
-  text-shadow: #fff 2px 2px;
-  text-align: left;
+  height: 25px;
+	margin: 5px 10px 0 0;
 }
 
 #delete_text_button {
@@ -393,29 +398,37 @@ input[type=text], input[type=password] {
   color: #cd1d1d !important;
 }
 
-#habit_type_text_button:hover{
-  color: #cd1d1d !important;
+.habit_select_action{ 
+  width:80px;
 }
 
-.chosen_yes input[type=submit]{
-  color: #cd1d1d !important;
-  cursor: pointer;
+.habit_select_name{ 
+  color: #A0A0A0;
+  width:100%;
+  font-size: 160%;
+  font-weight: bold;
 }
 
-.chosen_yes input[type=submit]:hover{
-  color: #cd1d1d !important;
+.sel_yes input[type=submit]{
+  display: block;
+  background:url(/images/remove_habit_type.png) no-repeat;
+  background-size:20px 20px;
+  cursor:pointer;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 10px;
 }
 
-.chosen input[type=submit]{
-  color: #505050 !important;
-  cursor: pointer;
-  box-shadow: none;
-  text-shadow: none;
-}
-
-.chosen input[type=submit]:hover{
-  display: none;
-  color: #505050 !important;
+.sel input[type=submit]{
+  display: block;
+  background:url(/images/add_habit_type.png) no-repeat;
+  background-size:20px 20px;
+  cursor:pointer;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 10px;
 }
 
 #add_habit_type { 
@@ -458,7 +471,7 @@ input[type=text], input[type=password] {
   cursor: pointer;
 }
 
-/* flash messages */
+/* flash messages and errors */
 #flashContainer {
   display: block;
   position: absolute; 
@@ -469,6 +482,7 @@ input[type=text], input[type=password] {
 #flashMessage {
   position: relative;
   left: -50%;
+  top: 10px;
   width: 95%;
   margin: 0 auto 0 auto;
 }
@@ -482,7 +496,7 @@ input[type=text], input[type=password] {
 
 #flash_message_habbit_type {
   position: relative;
-  top: -206px;
+  top: -263px;
   left: -50%;
   width: 95%;
   margin: 0 auto 0 auto;

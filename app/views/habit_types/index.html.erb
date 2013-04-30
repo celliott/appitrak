@@ -1,17 +1,22 @@
 <div class="habit_types">
+  <div id="page_description">
+    <h3>create new habit to track</h3>
+  </div>
 	<div class="new_habit">
-
   <%= form_for(:habit_type, :url => {:action => 'create'}, remote: true, :html => {:autocapitalize => 'none'})  do |f| %>
     <%= render(:partial => 'form', :locals => {:f => f} ) %>
-    <% if !mobile_device_iphone? %>
+    <% if !mobile_device? %>
       <div><%= submit_tag "create", :id => "add_habit_type", :class=> "button" %></div>
     <% end %>
   <% end %>
-
+    <p>new custom habits are automatically selected</p>
+    <br/>
 	</div>
 	<br />
-	<h3>select your habit types</h3>
 	<br />
+	<div id="page_description">
+	  <h3>select habits to track</h3>
+	</div>
   <%= link_to "", 
       {:action => 'habit_types'}, 
       id: "habit_types", 

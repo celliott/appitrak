@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   before_filter :set_timezone 
-  #before_filter :prepare_for_mobile
+  before_filter :prepare_for_mobile
   
   def show_menu
     @show_menu = true
@@ -43,28 +43,31 @@ class ApplicationController < ActionController::Base
     Time.zone = cookies["time_zone"]
   end
 
-
 	def mobile_device_ipad?
 	  if session[:ipad_param]
-	    session[:ipad_param] == "1"
+	    session[:ipad_param] == "2"
 	  else
 	    request.user_agent =~ /iPad/
 	  end
 	end
 	
-	def mobile_device_iphone?
+	def mobile_device?
 	  if session[:iphone_param]
 	    session[:iphone_param] == "1"
 	  else
-	    request.user_agent =~ /iPhone/
+	    request.user_agent =~ /Mobile/
 	  end
 	end
 	
 	helper_method :mobile_device_ipad?
-	helper_method :mobile_device_iphone?
+	helper_method :mobile_device?
 	
-	#def prepare_for_mobile
-	#  session[:mobile_param] = params[:mobile] if params[:mobile]
-	#  request.format = :mobile if mobile_device?
-	#end
+	def prepare_for_mobile
+	  session[:iphone_param] = ""
+	  session[:ipad_param] = ""
+	  session[:iphone_param] = '1' if request.user_agent =~ /Mobile/
+	  session[:iphone_param] = '1' if request.user_agent =~ /Mobile/
+	  session[:ipad_param] = '2' if request.user_agent =~ /iPad/
+	  session[:iphone_param] = '' if request.user_agent =~ /iPad/
+	end
 end

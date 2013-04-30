@@ -3,12 +3,17 @@
 <head>
   <title>habitrak</title>
   <%= stylesheet_link_tag    "application" %>
-  <%= stylesheet_link_tag 'iphone' if mobile_device_iphone? %>
-  <%= javascript_include_tag "bubble" if mobile_device_iphone? %>
-  <%= javascript_include_tag "bookmark_bubble" if mobile_device_iphone? %>
-  <%= javascript_include_tag "bubble" if mobile_device_ipad? %>  
-  <%= javascript_include_tag "bookmark_bubble_ipad" if mobile_device_ipad? %>
   <%= javascript_include_tag "application" %>
+  
+  <% if mobile_device? %>
+    <%= stylesheet_link_tag 'mobile' %>
+    <%= javascript_include_tag "bubble" %>
+    <%= javascript_include_tag "bookmark_bubble" if params[:action] == "entry" %>
+  <% elsif mobile_device_ipad? %>
+    <%= javascript_include_tag "bubble" %>
+    <%= javascript_include_tag "bookmark_bubble_ipad" if params[:action] == "entry" %>
+  <% end %>
+
   <%= csrf_meta_tags %>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />  
@@ -63,7 +68,7 @@
 		  <% end %>
 		</div>
 	</div>
-<% if params[:action] == "login" && !mobile_device_iphone? || params[:action] == "login" && !mobile_device_iphone? || params[:action] == "new" && !mobile_device_iphone? || params[:action] == "create" && !mobile_device_iphone? || params[:action] == "entry" && !mobile_device_iphone? || params[:controller] == "habit_types" && !mobile_device_iphone? %>
+<% if params[:action] == "login" && !mobile_device? || params[:action] == "login" && !mobile_device? || params[:action] == "new" && !mobile_device? || params[:action] == "create" && !mobile_device? || params[:action] == "entry" && !mobile_device? || params[:controller] == "habit_types" && !mobile_device? %>
 	<div class="container_narrow">
 <% else %>	
 	<div class="container">

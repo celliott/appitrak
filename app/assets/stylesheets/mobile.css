@@ -60,6 +60,14 @@
   max-width:140% !important;
 }
 
+.new_habit p {
+  font-size: 130%;
+}
+
+#page_description h3 {
+  font-size: 200%;
+}
+
 /* inputs and buttons */
 
 #trend_selector {
@@ -94,16 +102,6 @@
   -moz-box-sizing: border-box;
 }
 
-#habit_type_text_button {
-  font-size: 170%;
-  height: 30px;
-  margin: 0 5px 0 0;
-}
-
-#delete_text_button {
-  margin: 0 10px 5px -5px;
-}
-
 #trends_dropdown {
   font-size: 90%;
   width: 200px;
@@ -111,9 +109,23 @@
   top: -1px;
 }
 
+.habit_select_action{ 
+  height: 40px;
+}
+
+.habit_select_name{ 
+  font-size: 210%;
+}
+
+#delete_text_button {
+	font-size: 130%;
+}
+
+/* flash messages and errors */
+
 #flash_message_habbit_type {
   position: relative;
-  top: -206px;
+  top: -277px;
   left: -50%;
   width: 95%;
   margin: 0 auto 0 auto;

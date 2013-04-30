@@ -11,29 +11,27 @@
 	  <% end %>
 	</div>
 </div>
-
 <div class="habit_select_list">
 	<table><% @habits.each do |habit| %>
 	    <tr>
-			 				
-				<td class="habit_select_left">
+				<td class="habit_select_action">
 				  <%= form_for(:habit_type, :url => {:action => 'add', :id => habit.id}, remote: true) do -%>		    
-				    <div class="text-button chosen<%= "_yes" if @habit_types.exists?(:habit_id => habit.id) %>">
-				      <%= submit_tag habit.name, :id=> "habit_type_text_button" %>
+				    <div class="text-button sel<%= "_yes" if @habit_types.exists?(:habit_id => habit.id) %>">
+				      <%= submit_tag "", :id=> "habit_type_text_button" %>
 				    </div>
 				  <% end %>
 				</td>
-				
+				<td class="habit_select_name">
+				    <div class=" <%= "selected" if @habit_types.exists?(:habit_id => habit.id) %>">
+				      <%= habit.name %>
+				    </div>
+				</td>
 				<td class="habit_select_right"> 
 				  <% if @current_user_id.to_s == habit.user_id.to_s %>
-					  <%= form_for(:habit, :url => {:action => 'destroy', :id => habit.id}, remote: true) do |f| -%>		    
-					    <div class="text-button">
-					      <td><%= submit_tag "(delete)", :id=> "delete_text_button" %>
-					    </div>
+					  <%= form_for(:habit, :url => {:action => 'destroy', :id => habit.id}, remote: true) do |f| -%>		    		  <td><%= submit_tag "(delete)", :id=> "delete_text_button" %>
 					  <% end %>
 					<% end %>  
 				</td>
-				
 			</tr>   
 	  <% end %>
 	</table>
