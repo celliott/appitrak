@@ -41,15 +41,16 @@ class UsersController < ApplicationController
   
   def send_reset_password
     @user = User.find_by_email(params[:user][:email])
-      if @user.update_attributes(params[:user])
+      if @user
+        @user.update_attributes(params[:user])
         @user = User.find_by_email(params[:user][:email])
         UserMailer.reset_password(@user).deliver
         flash[:alert] = 'Password reset email has been sent.'
         redirect_to root_url
-    else
-			flash[:notice] = "No user with that email exists" 
-      render("reset_password")
-    end
+      else
+			  flash[:error] = "No user with that email exists" 
+        redirect_to reset_password_url
+      end
   end
   
   def update
