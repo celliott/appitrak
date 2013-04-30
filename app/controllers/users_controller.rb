@@ -88,7 +88,7 @@ class UsersController < ApplicationController
 
   def delete
     show_menu
-    @user = User.where(current_user_id)
+    @user = User.find(@current_user_id)
     render("delete")
   end
 
