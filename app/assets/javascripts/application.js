@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-easing
 //= require raphael
 //= require morris
 //= require jstz.min
@@ -19,6 +20,30 @@
 
 //<![CDATA[
 $(document).ready(function() {
+  
+  // show hide menu
+  $('#user_menu').click(function(){
+    event.stopPropagation();
+		if($('#user_drop').hasClass('not_open')){
+			   $('#user_drop').animate({height:'50px'},{queue:false, duration:200, easing: 'swing'}).show();
+			   $('#user_drop').removeClass('not_open');
+			   $('#user_drop').addClass('open');
+		}else if($('#user_drop').hasClass('open')){
+		    $('#user_drop').hide();
+		    $('#user_drop').height('0px');
+			  $('#user_drop').addClass('not_open');
+			  $('#user_drop').removeClass('open');
+		}
+  });
+  
+  $('html').click(function(){
+		if($('#user_drop').hasClass('open')){
+		    $('#user_drop').hide();
+		    $('#user_drop').height('0px');
+			  $('#user_drop').addClass('not_open');
+			  $('#user_drop').removeClass('open');
+		}
+  });
   
   // fades flash message
   timer = setTimeout(fadeOut, 2500);
@@ -29,12 +54,11 @@ $(document).ready(function() {
   // set's timezone in a cookie 
   var timezone = jstz.determine();
   document.cookie = 'time_zone='+timezone.name()+';';
-  // $('.colorbox').colorbox({photo:true, opacity:0.77, maxHeight:"100%"});
   
   // keeps web app links in the same window
   $("a").click(function (event) {
     event.preventDefault();
-    if($(this).attr("href") == '/habit_types/habit_types'){
+    if($(this).attr("href") == '/settings/habit_types'){
       window.location.top= $(this).attr("href");
     } else {  
       window.location = $(this).attr("href");

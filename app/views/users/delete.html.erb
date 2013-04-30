@@ -1,3 +1,23 @@
-<div class="user delete">
-  <h2>User Delete</h2>
-</div> 
+<div class="habit_types">
+  <div id="page_description">
+    <h3>delete your account</h3>
+    <p>we are sorry to see you leave!</p>
+    <br />
+    <br />
+  </div>
+	<%= form_for(:email, :url => {:action => 'destroy'})  do |f| %>	    
+	<div class="habit_type_delete">
+	  <div class="field">
+	    <%= f.text_field :delete_user, :placeholder => 'confirm email' %>  
+	  </div>
+	  <p>you must confirm your email to delete your account</p>
+	</div>
+	<div><%= submit_tag "delete account", :id => "delete_account", :class=> "button" %></div>	
+	<% end %>
+	
+	<%= link_to "cancel", 
+	      {:controller => 'settings'}, 
+	      id: "cancel", 
+	      :class => "button"
+	%>
+</div>

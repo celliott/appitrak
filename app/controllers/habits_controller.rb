@@ -8,7 +8,7 @@ class HabitsController < ApplicationController
     @habits = Habit.order("name ASC").where(:id => habit_ids)
     @user = User.find(current_user_id)
     if @habits.empty?
-      redirect_to(:controller => 'habit_types')
+      redirect_to(:controller => 'settings')
       flash[:alert] = 'add or select some habits to get started'
     end
   end
@@ -43,7 +43,7 @@ class HabitsController < ApplicationController
       redirect_to root_url, notice: "#{@habit.name} has been added!"
     else
       flash[:notice] = '#{@habit.name} not created.'
-      render("habit_types")
+      render("settings")
     end
   end
   

@@ -15,35 +15,48 @@ class UsersController < ApplicationController
       session[:email] = @user.email
       session[:name] = @user.name
       session[:first_name] = @user.first_name
-      flash[:notice] = "Thank you for signing up #{@user.first_name}!"
-      redirect_to root_url 
+      redirect_to habits_url 
     else
       render("new")
     end
   end
   
   def edit
-    @user = User.find(params[:id])
+    show_menu
+    @user = User.find(current_user_id)
   end
   
   def update
-    @user = User.find(params[:id])
+    show_menu
+    @user = User.find(current_user_id)
     if @user.update_attributes(params[:user])
-      flash[:notice] = 'User updated.'
-      redirect_to(:action => 'list')
+      flash[:notice] = 'Password updated.'
+      redirect_to(:controller => 'settings')
     else
       render("edit")
     end
   end
 
   def delete
-    @user = User.find(params[:id])
+    show_menu
+    @user = User.find(current_user_id)
+    render("delete")
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    flash[:notice] = "User removed."
-    redirect_to(:action => 'list')
+    show_menu
+    @user = User.find(current_user_id)
+    if @user.email == params[:email][:delete_user]
+      User.find(current_user_id).destroy
+      session.delete :user_id 
+      cookies.delete :user_id 
+      cookies.delete :trend
+      flash[:notice] = "User removed. Goodbye."
+      redirect_to root_url
+    else
+      flash[:notice] = "Email does not match." 
+      render("delete")
+    end  
   end
   
 end

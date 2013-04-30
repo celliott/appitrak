@@ -9,7 +9,8 @@ Appitrak::Application.routes.draw do
   match 'logout', :to => 'access#logout'
   match 'signup', :to => 'users#new'
   match 'habits', :to => 'habits#entry'
-  match 'habit_types', :to => 'habit_types#index'
+  match 'settings', :to => 'settings#index'
+  match 'account/:id', :to => 'users#edit'
   match 'trends', :to => 'habits#trends'
 
   # Sample of regular route:

@@ -1,4 +1,4 @@
-class HabitTypesController < ApplicationController
+class SettingsController < ApplicationController
 
   before_filter :confirm_logged_in
 
@@ -15,10 +15,6 @@ class HabitTypesController < ApplicationController
 		  
   end
   
-  def new
-    @habit = Habit.new
-  end
-  
   def create
 	    @habits = Habit.order("name ASC").find_all_by_user_id([0, current_user_id])
 			@habit_types = UsersHabit.where('user_id=? AND habit_id = ?"', current_user_id, params[:id])
@@ -33,7 +29,7 @@ class HabitTypesController < ApplicationController
         redirect_to habit_types_url
       end
     respond_to do |format|
-      format.html { redirect_to habit_types_url}
+      format.html { redirect_to settings_url}
       format.js
     end  
   end
@@ -50,13 +46,9 @@ class HabitTypesController < ApplicationController
       flash[:notice] = "#{@habit.name} selected"
     end
     respond_to do |format|
-      format.html { redirect_to habit_types_url}
+      format.html { redirect_to settings_url}
       format.js
     end
-  end
-  
-  def delete
-    @habit = Habit.find(params[:id])
   end
 
   def destroy
@@ -67,7 +59,7 @@ class HabitTypesController < ApplicationController
     Habit.find(params[:id]).destroy
     flash[:notice] = "#{@habit.name} has been removed"
     respond_to do |format|
-      format.html { redirect_to habit_types_url}
+      format.html { redirect_to settings_url}
       format.js
     end 
   end

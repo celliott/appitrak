@@ -27,29 +27,29 @@
 <div class="header"><p>habitrak</p></div>
 <% end %>
 <% if @show_menu %>
-	<div class="main menu">
-	  <ul>
-	  <% if session[:user_id] %>
-	      <li>welcome <%= @user.first_name.downcase %></li><li>:</li>
-	  <% else %>
-	      <li><%= link_to("login", :controller => 'login') %></li><li>:</li>
-	      <li><%= link_to("sign up", :controller => 'signup') %></li><li>:</li>
-	  <% end %>
-	    <% if session[:user_id]%>
-	      <li><%= link_to("logout", :controller => 'logout') %></li><li>:</li>
-	    <% end %>     
-	    <li class="<%= "selected" if params[:action] == "entry" %>"><%= link_to("habits", root_url) %></li><li>:</li>
-	    <li class="<%= "selected" if params[:controller] == "habit_types" %>"><%= link_to("habit types", :controller => 'habit_types') %></li><li>:</li>
+	<div class="main menu">	
+		<ul>
+	    <li class="<%= "selected" if params[:action] == "entry" %>"><%= link_to("habits", root_url) %></li><li>&nbsp;&nbsp;|&nbsp;</li>
 	    <li class="<%= "selected" if params[:action] == "trends" %>"><%= link_to("trends", :controller => 'trends') %></li>
 	  </ul> 
 	</div>
+	
+  <div id="user_menu">
+    <p>welcome, <%= @user.first_name.downcase %>!</p>
+      <div id="user_drop" class="not_open">  
+        <ul>
+          <li class="<%= "selected" if params[:controller] == "settings" || params[:controller] == "users" %>"><%= link_to("user settings", :controller => 'settings') %></li>
+          <li><%= link_to("logout", :controller => 'logout') %></li>
+        </ul>  
+      </div>
+  </div>
+	
 <% end %>
 
 <% if @show_public_menu %>
 	<div class="main menu">
 	  <ul>
-	      <li class="<%= "selected" if params[:controller] == "main" %>"><%= link_to("home", root_url) %></li><li>:</li>
-	      <li class="<%= "selected" if params[:action] == "login" %>"><%= link_to("login", :controller => 'login') %></li><li>:</li>
+	      <li class="<%= "selected" if params[:action] == "login" %>"><%= link_to("login", :controller => 'login') %></li><li>&nbsp;&nbsp;|&nbsp;</li>
 	      <li class="<%= "selected" if params[:action] == "new" || params[:action] == "create" %>"><%= link_to("sign up", :controller => 'signup') %></li>	        
 	  </ul> 
 	</div>
@@ -68,7 +68,7 @@
 		  <% end %>
 		</div>
 	</div>
-<% if params[:action] == "login" && !mobile_device? || params[:action] == "login" && !mobile_device? || params[:action] == "new" && !mobile_device? || params[:action] == "create" && !mobile_device? || params[:action] == "entry" && !mobile_device? || params[:controller] == "habit_types" && !mobile_device? %>
+<% if params[:action] == "login" && !mobile_device? || params[:action] == "login" && !mobile_device? || params[:action] == "create" && !mobile_device? || params[:action] == "entry" && !mobile_device? || params[:controller] == "settings" && !mobile_device? || params[:controller] == "users" && !mobile_device? %>
 	<div class="container_narrow">
 <% else %>	
 	<div class="container">

@@ -17,7 +17,7 @@ class AccessController < ApplicationController
          cookies.signed[:user_id] = { :value => authorized_user.id.to_s, :expires => 2.weeks.from_now }
        end  
        flash[:alert] = "Welcome back #{authorized_user.first_name.capitalize}!"
-       redirect_to root_url 
+       redirect_to habits_url 
      else
        flash[:error] = "Invalid username/password combination."
        redirect_to(:action => 'login')
@@ -28,6 +28,7 @@ class AccessController < ApplicationController
      session.delete :user_id 
      cookies.delete :user_id 
      cookies.delete :trend
+     flash[:alert] = "Goodbye. Come back soon."
      redirect_to root_url
    end
 
