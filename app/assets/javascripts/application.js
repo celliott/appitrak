@@ -46,6 +46,7 @@ $(document).ready(function() {
 		    $('#user_drop').height('0px');
 			  $('#user_drop').addClass('not_open');
 			  $('#user_drop').removeClass('open');
+			  $('#user_menu').removeClass('open');
 		}
   });
   
