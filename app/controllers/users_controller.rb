@@ -2,7 +2,7 @@ require 'securerandom'
 
 class UsersController < ApplicationController
   
-  before_filter :confirm_logged_in, :except => [:reset_password, :change_password, :update_password, :send_reset_password, :new, :create, :login, :attempt_login, :logout]
+  before_filter :confirm_logged_in, :except => [:new, :create, :login, :attempt_login, :logout, :reset_password, :change_password, :update_password, :send_reset_password]
      
   def new
     show_public_menu
