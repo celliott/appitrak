@@ -22,10 +22,10 @@ class SettingsController < ApplicationController
 	    @user = User.find(current_user_id)
 	    @habit = Habit.where('name=? AND user_id=?', params[:habit_type][:name], current_user_id)
 	    if @habit.exists?
-	      flash[:notice] = "#{params[:habit_type][:name]} has been created and selected!"   
+	      flash[:notice] = "#{params[:habit_type][:name]} has been added and selected!"   
 	      @user.habits << @habit
       else
-        flash[:error] = '#{params[:habit_type][:name]} was not created.'
+        flash[:error] = '#{params[:habit_type][:name]} was not added.'
         redirect_to habit_types_url
       end
     respond_to do |format|
