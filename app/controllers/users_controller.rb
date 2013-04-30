@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     show_menu
     @user = User.find(current_user_id)
     if @user.update_attributes(params[:user])
-      flash[:notice] = 'Password updated.'
+      flash[:error] = 'Password updated.'
       redirect_to(:controller => 'settings')
     else
       render("edit")
