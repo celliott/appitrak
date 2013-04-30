@@ -33,10 +33,6 @@ class HabitsController < ApplicationController
     end
   end
   
-  def new
-    @habit = Habit.new
-  end
-  
   def create
     @habit = Habit.new(params[:habit])
     if @habit.save
@@ -55,10 +51,6 @@ class HabitsController < ApplicationController
     @habit_user.save
     flash[:notice] = "#{@habit.name} recorded!"
     redirect_to(:action => 'entry')
-  end
-  
-  def delete
-    @habit = Habit.find(params[:id])
   end
 
   def destroy

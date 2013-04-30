@@ -131,7 +131,7 @@ a:hover {
 .menu {
   display: block;
   height:50px;
-  width: 100%;
+  width: 100.5%;
   margin: 0 auto 0 0;
   background: url('/images/menu.png');
   border-bottom:solid 1px  #D8D8D8;
