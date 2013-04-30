@@ -8,6 +8,10 @@
   font-size: 130%; 
 }
 
+#user_menu {
+  margin: -35px 2px 0 10px; 
+}
+
 .header {
   height: 20px;
 	background-size: 55%;

@@ -27,7 +27,7 @@
 <div class="header"><p>habitrak</p></div>
 <% end %>
 <% if @show_menu %>
-	<div class="main menu">	
+	<div class="main menu main_menu">	
 		<ul>
 	    <li class="<%= "selected" if params[:action] == "entry" %>"><%= link_to("habits", root_url) %></li><li>&nbsp;&nbsp;|&nbsp;</li>
 	    <li class="<%= "selected" if params[:action] == "trends" %>"><%= link_to("trends", :controller => 'trends') %></li>

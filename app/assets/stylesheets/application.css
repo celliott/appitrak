@@ -132,11 +132,15 @@ a:hover {
   display: block;
   height:50px;
   width: 100%;
-  margin: 0 auto 0 auto;
+  margin: 0 auto 0 0;
   background: url('/images/menu.png');
   border-bottom:solid 1px  #D8D8D8;
   border-top:solid 1px  #F0F0F0;
   text-align: center;
+}
+
+.main_menu {
+  margin: 0 auto 0 -6px;
 }
 
 .menu ul {
