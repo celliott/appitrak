@@ -39,3 +39,11 @@
 	  %>
 
 </div>
+<% if !mobile_device? %>
+	<script type="text/javascript">
+	  $(document).ready(function() {
+	    $('#user_drop').css({height:'50px'}).show();
+		  $('#user_drop').removeClass('not_open');
+			$('#user_drop').addClass('open');  });
+	</script>
+<% end %>
