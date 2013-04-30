@@ -55,7 +55,14 @@
 	</div>
 <% end %>
 
-	<div id="flashContainer">
+
+<% if params[:action] == "login" && !mobile_device? || params[:action] == "login" && !mobile_device? || params[:action] == "create" && !mobile_device? || params[:action] == "entry" && !mobile_device? || params[:controller] == "settings" && !mobile_device? || params[:controller] == "users" && !mobile_device? %>
+	<div class="container_narrow">
+<% else %>	
+	<div class="container">
+
+<% end %>
+		<div id="flashContainer">
 		<div style="display: none;" id="flashMessage">
 		  <% if flash[:notice] %>
 		      <p class="notice hide"><%= flash[:notice] %></p>
@@ -68,13 +75,6 @@
 		  <% end %>
 		</div>
 	</div>
-<% if params[:action] == "login" && !mobile_device? || params[:action] == "login" && !mobile_device? || params[:action] == "create" && !mobile_device? || params[:action] == "entry" && !mobile_device? || params[:controller] == "settings" && !mobile_device? || params[:controller] == "users" && !mobile_device? %>
-	<div class="container_narrow">
-<% else %>	
-	<div class="container">
-
-<% end %>
-	
 	  <%= yield %>
 	</div>
 

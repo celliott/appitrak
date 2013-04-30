@@ -592,13 +592,13 @@ input[type=text], input[type=password] {
   display: block;
   position: absolute; 
   left: 50%;
-  width: 100%;
+  width: 37%;
 }
 
 #flashMessage {
   position: relative;
   left: -50%;
-  top: 10px;
+  top: -32px;
   width: 95%;
   margin: 0 auto 0 auto;
 }
@@ -607,7 +607,7 @@ input[type=text], input[type=password] {
   display: block;
   position: absolute; 
   left: 50%;
-  width: 100%;
+  width: 37%;
 }
 
 #flash_message_habbit_type {

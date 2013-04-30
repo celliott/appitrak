@@ -40,6 +40,7 @@ $(document).ready(function() {
 		}
   });
   
+  // dismisses menu when clicked anywhere on page
   $('html').click(function(){
 		if($('#user_drop').hasClass('open')){
 		    $('#user_drop').hide();

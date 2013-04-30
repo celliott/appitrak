@@ -133,6 +133,14 @@
 
 /* flash messages and errors */
 
+#flashContainer {
+  width: 100%;
+}
+
+#flash_container_habbit_type {
+  width: 100%;
+}
+
 #flash_message_habbit_type {
   position: relative;
   top: -277px;
