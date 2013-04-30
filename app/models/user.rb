@@ -1,7 +1,10 @@
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation, :last_name, :first_name
+  attr_accessible :email, :password, :password_confirmation, :password_reset, :last_name, :first_name
+  
+  attr_reader :password_reset
+  attr_accessor :password_reset
   
   has_many :users_habit
   has_many :habits, :through => :users_habit

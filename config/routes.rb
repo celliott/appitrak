@@ -12,6 +12,8 @@ Appitrak::Application.routes.draw do
   match 'settings', :to => 'settings#index'
   match 'account/:id', :to => 'users#edit'
   match 'trends', :to => 'habits#trends'
+  match 'change_password', :to => 'users#change_password'
+  match 'reset_password', :to => 'users#reset_password'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
