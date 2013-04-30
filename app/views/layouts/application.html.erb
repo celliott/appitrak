@@ -38,7 +38,7 @@
     <p>welcome, <%= @user.first_name.downcase %>!<span> &#711;</span></p>
       <div id="user_drop" class="not_open">  
         <ul>
-          <li class="<%= "selected" if params[:controller] == "settings" || params[:controller] == "users" %>"><%= link_to("user settings", :controller => 'settings') %></li>
+          <li class="<%= "user_menu_selected" if params[:controller] == "settings" || params[:controller] == "users" %>"><%= link_to("user settings", :controller => 'settings') %></li>
           <li><%= link_to("logout", :controller => 'logout') %></li>
         </ul>  
       </div>

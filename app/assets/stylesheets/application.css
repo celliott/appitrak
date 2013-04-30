@@ -216,6 +216,10 @@ a:hover {
   color: #cd1d1d;
 }
 
+.user_menu_selected a{
+  color: #cd1d1d !important; 
+}
+
 .chosen {
   font-weight: bold;
   color: #cd1d1d;
