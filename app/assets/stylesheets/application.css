@@ -197,6 +197,10 @@ a:hover {
   height:0px;
 }
 
+.open {
+  color: #cd1d1d !important;
+}
+
 #user_menu ul{
   list-style: none;
   padding: 2px 0 2px 0;
@@ -213,6 +217,10 @@ a:hover {
 
 .selected {
   font-weight: bold;
+  color: #cd1d1d;
+}
+
+.menu_selected {
   color: #cd1d1d;
 }
 

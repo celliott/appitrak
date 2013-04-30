@@ -27,11 +27,13 @@ $(document).ready(function() {
 		if($('#user_drop').hasClass('not_open')){
 			   $('#user_drop').animate({height:'50px'},{queue:false, duration:200, easing: 'swing'}).show();
 			   $('#user_drop').removeClass('not_open');
+         $('#user_menu').addClass('open');
 			   $('#user_drop').addClass('open');
 		}else if($('#user_drop').hasClass('open')){
 				$('#user_drop').fadeOut(200);
 			  $('#user_drop').addClass('not_open');
 			  $('#user_drop').removeClass('open');
+			  $('#user_menu').removeClass('open');
 		    setTimeout(function(){
           $('#user_drop').height('0px');
         }, 300);  
