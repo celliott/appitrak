@@ -29,10 +29,12 @@ $(document).ready(function() {
 			   $('#user_drop').removeClass('not_open');
 			   $('#user_drop').addClass('open');
 		}else if($('#user_drop').hasClass('open')){
-		    $('#user_drop').hide();
-		    $('#user_drop').height('0px');
+				$('#user_drop').fadeOut(200);
 			  $('#user_drop').addClass('not_open');
 			  $('#user_drop').removeClass('open');
+		    setTimeout(function(){
+          $('#user_drop').height('0px');
+        }, 300);  
 		}
   });
   

@@ -12,6 +12,11 @@
   margin: -35px 2px 0 10px; 
 }
 
+#user_menu p:hover {
+  color: #505050;
+  cursor: pointer;
+}
+
 .header {
   height: 20px;
 	background-size: 55%;
