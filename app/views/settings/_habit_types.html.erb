@@ -28,7 +28,7 @@
 				</td>
 				<td class="habit_select_right"> 
 				  <% if @current_user_id.to_s == habit.user_id.to_s %>
-					  <%= form_for(:habit, :url => {:action => 'destroy', :id => habit.id}, remote: true) do |f| -%>		    		  <td><%= submit_tag "(delete)", :id=> "delete_text_button" %>
+					  <%= form_for(:habit, :url => {:action => 'destroy', :id => habit.id}, remote: true) do |f| -%>		    		  				<td><%= submit_tag "(delete)", :id=> "delete_text_button" %>
 					  <% end %>
 					<% end %>  
 				</td>

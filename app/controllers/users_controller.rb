@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   end
   
   def reset_password
+    show_public_menu
     @new_password = SecureRandom.hex(10)
   end
   
