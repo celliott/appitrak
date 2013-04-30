@@ -20,7 +20,7 @@
 
 //<![CDATA[
 $(document).ready(function() {
-  
+
   // show hide menu
   $('#user_menu').click(function(){
     event.stopPropagation();

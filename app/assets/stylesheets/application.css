@@ -177,6 +177,12 @@ a:hover {
   cursor: pointer;
 }
 
+#user_menu p1 {
+  position: relative;
+  top: 9px;
+  left: 2px;
+}
+
 #user_drop {
   width: 130px;
   background: #f8f8f8;
