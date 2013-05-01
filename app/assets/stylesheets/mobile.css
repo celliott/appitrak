@@ -4,7 +4,7 @@
   padding: 16px 2px 0 10px; 
 }
 
-.menu ul li{
+.menu ul li {
   font-size: 130%; 
 }
 
@@ -81,7 +81,7 @@
   font-size: 150%;
 }
 
-.habit_type_delete p{
+.habit_type_delete p {
   font-size: 130%;
 }
 
@@ -91,7 +91,7 @@
   font-size: 150%;
 }
 
-.button{
+.button {
   font-weight:600;
   font-size: 180%;
   text-align: center;
@@ -119,11 +119,11 @@
   top: -1px;
 }
 
-.habit_select_action{ 
+.habit_select_action { 
   padding-top: 5px;
 }
 
-.habit_select_name{ 
+.habit_select_name { 
   width: 100%;
   padding-top: 4px
 }
@@ -150,7 +150,7 @@
   
 }
 
-.sel_name input[type=submit]{
+.sel_name input[type=submit] {
   color: #A0A0A0;
   width:100%;
   font-size: 180%;

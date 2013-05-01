@@ -32,21 +32,21 @@ body {
 	margin: 0 0 40px 0; 
 }
 
-.container{
+.container {
   min-height: 100%;
   width:90%;
   margin: 0 auto 60px auto;
   padding:  0 0 100px 0;
 }
 
-.container_narrow{
+.container_narrow {
   min-height: 100%;
   width:400px;
   margin: 0 auto 60px auto;
   padding:  0 0 100px 0;
 }
 
-.header{
+.header {
   color: #fff;
 	font-weight: normal;
 	text-decoration: none;
@@ -60,7 +60,7 @@ body {
   cursor: pointer;
 }
 
-.header p{
+.header p {
   font-size: 300%;
   text-shadow: -1px -1px 2px #000;
   margin: -2px 0 0 0;
@@ -145,7 +145,7 @@ a:hover {
   padding: 17px 0 0 0; 
 }
 
-.menu ul li{
+.menu ul li {
   font-size: 130%;
   font-weight: bold;
   display: inline;
@@ -153,7 +153,7 @@ a:hover {
   text-shadow: 1px 1px #fff;
 }
 
-.menu p{
+.menu p {
   display: none;
   font-size: 130%;
   float: left;
@@ -199,12 +199,12 @@ a:hover {
   color: #cd1d1d !important;
 }
 
-#user_menu ul{
+#user_menu ul {
   list-style: none;
   padding: 2px 0 2px 0;
 }
 
-#user_menu ul li{
+#user_menu ul li {
   padding: 2px 0 2px 10px;
 }
 
@@ -222,7 +222,7 @@ a:hover {
   color: #cd1d1d;
 }
 
-.user_menu_selected a{
+.user_menu_selected a {
   color: #cd1d1d !important; 
 }
 
@@ -284,7 +284,7 @@ a:hover {
 	-webkit-filter: drop-shadow(-1px -1px 1px rgba(0,0,0,.1));
 }
 
-#main_item_description h3{
+#main_item_description h3 {
   font-size: 130%;
   color: #505050;
   text-shadow: 1px 1px #f8f8f8;
@@ -314,7 +314,7 @@ a:hover {
   display:none;
 }
 
-.login{
+.login {
   min-height: 100%;
   margin: 95px 0 0 0;
 }
@@ -325,7 +325,7 @@ a:hover {
   margin: 10px 0 0 0;
 }
 
-.habit{
+.habit {
   margin: 40px 0 0 0;
 }
 
@@ -337,7 +337,7 @@ a:hover {
   margin: 40px 0 0 0;
 }
 
-.habit_types h3{
+.habit_types h3 {
   text-align: center;
 }
 
@@ -353,7 +353,7 @@ a:hover {
 	-webkit-filter: drop-shadow(-1px -1px 1px #E0E0E0);
 }
 
-#delete_habit{
+#delete_habit {
   margin: 0 0 0 0;
 }
 
@@ -368,16 +368,16 @@ a:hover {
   font-size: 140%;
 }
 
-.user_new{
+.user_new {
   text-align: center;
   margin: 30px 0 0 0;
 }
 
-.user_create{
+.user_create {
   margin: 30px 0 0 0;
 }
 
-.habit_type_delete p{
+.habit_type_delete p {
   margin: -5px 0 20px 0;
 }
 
@@ -398,7 +398,7 @@ input[type=text], input[type=password] {
   cursor: auto;
 }
 
-.button{
+.button {
   display: block;
   width: 100%;
   font-weight:normal;
@@ -427,7 +427,7 @@ input[type=text], input[type=password] {
   -moz-box-sizing: border-box;
 }
 
-.button:hover{
+.button:hover {
 	background: -webkit-gradient(linear, left top, left bottom, from(#FFF380), to(#FDD017));
 	background: -webkit-linear-gradient(top, #FFF380, #FDD017);
 	background: -moz-linear-gradient(top, #FFF380, #FDD017);
@@ -500,8 +500,6 @@ input[type=text], input[type=password] {
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
-
-
 #habit_type_text_button {
   height: 25px;
 	margin: 5px 10px 0 0;
@@ -527,7 +525,7 @@ input[type=text], input[type=password] {
   color: #cd1d1d !important;
 }
 
-.habit_select_action{  
+.habit_select_action {  
   width:20px;
   vertical-align: middle;
 }
@@ -550,7 +548,7 @@ input[type=text], input[type=password] {
   border-radius: 10px;
 }
 
-.sel input[type=submit]{
+.sel input[type=submit] {
   display: block;
   background:url(/images/add_habit_type.png) no-repeat;
   background-size:20px 20px;
@@ -580,7 +578,7 @@ input[type=text], input[type=password] {
   
 }
 
-.sel_name input[type=submit]{
+.sel_name input[type=submit] {
   color: #A0A0A0;
   width:100%;
   font-size: 160%;
@@ -615,7 +613,7 @@ input[type=text], input[type=password] {
   margin: 40px 0 0 12px;
 }
 
-#trends_dropdown  {
+#trends_dropdown {
   font-size: 120%;
   width: 200px;
   position: relative;
@@ -630,7 +628,7 @@ input[type=text], input[type=password] {
   cursor: pointer;
 }
 
-.checkbox label{
+.checkbox label {
   cursor: pointer;
 }
 
@@ -745,7 +743,7 @@ input[type=text], input[type=password] {
   border:1px solid #c43c35;
 }
 
-.field_with_errors ::-webkit-input-placeholder{
+.field_with_errors ::-webkit-input-placeholder {
   color: #c43c35;
 }
 
@@ -761,10 +759,10 @@ input[type=text], input[type=password] {
 
 /** firefox fixes **/
 @-moz-document url-prefix() {
-	900{ 
-	font-weight: bold !important; 
+	900 { 
+	  font-weight: bold !important; 
 	}
-	#trends_dropdown  {
+	#trends_dropdown {
   	font-size: 60%;
   	width: 200px;
   	padding: 2px 0 2px 0;

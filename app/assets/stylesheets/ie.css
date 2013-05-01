@@ -2,7 +2,7 @@
 
 /* inputs and buttons */
 
-.button{
+.button {
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
@@ -40,7 +40,7 @@
 	border-radius: 0px;
 }
 
-#trends_dropdown  {
+#trends_dropdown {
 	font-size: 80%;
 	width: 200px;
 	padding: 2px 0 2px 0;
