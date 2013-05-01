@@ -22,7 +22,7 @@
 $(document).ready(function() {
 
   // show hide menu
-  $('#user_menu').click(function(){
+  $('#user_menu').click(function(event){
     event.stopPropagation();
 		if($('#user_drop').hasClass('not_open')){
 			   $('#user_drop').animate({height:'50px'},{queue:false, duration:200, easing: 'swing'}).show();
