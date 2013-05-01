@@ -514,18 +514,19 @@ input[type=text], input[type=password] {
   color: #cd1d1d !important;
 }
 
-.habit_select_action{ 
+.habit_select_action{  
   width:80px;
 }
 
-.habit_select_name{ 
+.habit_select_name { 
   color: #A0A0A0;
   width:100%;
   font-size: 160%;
   font-weight: bold;
+  vertical-align: middle;
 }
 
-.sel_yes input[type=submit]{
+.sel_yes input[type=submit] {
   display: block;
   background:url(/images/remove_habit_type.png) no-repeat;
   background-size:20px 20px;
