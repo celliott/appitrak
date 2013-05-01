@@ -22,9 +22,11 @@
 				  <% end %>
 				</td>
 				<td class="habit_select_name">
-				    <div class=" <%= "selected" if @habit_types.exists?(:habit_id => habit.id) %>">
-				      <p><%= habit.name %></p>
+				    <%= form_for(:habit_type, :url => {:action => 'add', :id => habit.id}, remote: true) do -%>		    
+				    <div class="text-button sel_name<%= "_yes" if @habit_types.exists?(:habit_id => habit.id) %>">
+				      <%= submit_tag habit.name, :id=> "habit_type_text_button" %>
 				    </div>
+				  <% end %>
 				</td>
 				<td class="habit_select_right"> 
 				  <% if @current_user_id.to_s == habit.user_id.to_s %>

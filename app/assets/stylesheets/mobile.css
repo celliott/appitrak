@@ -120,24 +120,56 @@
 }
 
 .habit_select_action{ 
-  height: 30px;
   padding-top: 5px;
 }
 
 .habit_select_name{ 
-  font-size: 210%;
+  width: 100%;
+  padding-top: 4px
 }
 
 
 #delete_text_button {
 	font-size: 130%;
+	padding-right: 15px;
+}
+
+.sel_name_yes input[type=submit] {
+  color: #cd1d1d;
+  width:100%;
+  font-size: 180%;
+  font-weight: bold;
+  vertical-align: middle;
+  cursor:pointer;
+  height: 100%;
+  background: none;
+  border: none;
+  border-radius: none;
+  text-align: left;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  
+}
+
+.sel_name input[type=submit]{
+  color: #A0A0A0;
+  width:100%;
+  font-size: 180%;
+  font-weight: bold;
+  vertical-align: middle;
+  cursor:pointer;
+  height: 100%;
+  background: none;
+  border: none;
+  border-radius: none;
+  text-align: left;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 /* flash messages and errors */
 
 #flash_message_habbit_type {
   position: relative;
-  top: -277px;
+  top: -255px;
   left: -50%;
   width: 95%;
   margin: 0 auto 0 auto;
