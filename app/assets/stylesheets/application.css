@@ -568,7 +568,7 @@ input[type=text], input[type=password] {
   margin: 40px 0 0 12px;
 }
 
-#trends_dropdown {
+#trends_dropdown  {
   font-size: 120%;
   width: 200px;
   position: relative;
@@ -707,4 +707,18 @@ input[type=text], input[type=password] {
   top: 25px;
   text-align: right;
   margin: -12px 10px 0 0 ;
+}
+
+/** firefox fixes **/
+@-moz-document url-prefix() {
+	900{ 
+	font-weight: bold !important; 
+	}
+	#trends_dropdown  {
+  	font-size: 80%;
+  	width: 200px;
+  	padding: 2px 0 2px 0;
+  	position: relative;
+  	top: -px;
+	}
 }
