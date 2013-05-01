@@ -765,10 +765,10 @@ input[type=text], input[type=password] {
 	font-weight: bold !important; 
 	}
 	#trends_dropdown  {
-  	font-size: 80%;
+  	font-size: 60%;
   	width: 200px;
   	padding: 2px 0 2px 0;
   	position: relative;
-  	top: -px;
+  	top: -1px;
 	}
 }

@@ -40,3 +40,11 @@
 	border-radius: 0px;
 }
 
+#trends_dropdown  {
+	font-size: 80%;
+	width: 200px;
+	padding: 2px 0 2px 0;
+	position: relative;
+	top: -1px;
+}
+
