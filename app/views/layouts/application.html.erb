@@ -6,6 +6,10 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   
+  <!--[if IE]>
+    <link href="/assets/ie.css?body=1" media="screen" rel="stylesheet" type="text/css">
+  <![endif]-->
+  
   <% if mobile_device? %>
     <%= stylesheet_link_tag 'mobile' %>
     <%= javascript_include_tag "bubble" %>

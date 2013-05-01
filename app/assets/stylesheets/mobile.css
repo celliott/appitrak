@@ -120,12 +120,14 @@
 }
 
 .habit_select_action{ 
-  height: 40px;
+  height: 30px;
+  padding-top: 5px;
 }
 
 .habit_select_name{ 
   font-size: 210%;
 }
+
 
 #delete_text_button {
 	font-size: 130%;
