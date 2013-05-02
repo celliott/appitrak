@@ -10,8 +10,8 @@
 	  <div class="field">
 	    <%= f.text_field :delete_user, :placeholder => 'confirm email' %>  
 	  </div>
-	  <p>This action CANNOT be undone. This will delete your habitrack account and recorded habits permanently.</p> 
-	  <p>please type in your email to confirm.</p>
+	  <p>this action <b>CANNOT</b> be undone and will delete your habitrack account, custom habits and all recorded habits permanently!</p> 
+	  <p>please type your email to confirm</p>
 	</div>
 	<div><%= submit_tag "I understand, delete my account", :id => "delete_account", :class=> "button" %></div>	
 	<% end %>
