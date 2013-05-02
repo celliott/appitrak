@@ -15,9 +15,6 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.registration_confirmation(@user).deliver
       session[:user_id] = @user.id
-      session[:email] = @user.email
-      session[:name] = @user.name
-      session[:first_name] = @user.first_name
       redirect_to habits_url 
     else
       render("new")
@@ -73,9 +70,6 @@ class UsersController < ApplicationController
 	    if @user.update_attributes(params[:user])
 	      flash[:alert] = 'Password updated.'
 	      session[:user_id] = @user.id
-        session[:email] = @user.email
-        session[:name] = @user.name
-        session[:first_name] = @user.first_name
         redirect_to habits_url
 	    else
 	      flash[:error] = "Passwords don't match or is empty."
@@ -98,6 +92,9 @@ class UsersController < ApplicationController
     @user = User.find(current_user_id)
     if @user.email == params[:email][:delete_user]
       User.find(current_user_id).destroy
+      Habit.where('user_id=?', current_user_id).delete_all
+      UsersHabit.where('user_id=?', current_user_id).delete_all
+      HabitsUser.where('user_id=?', current_user_id).delete_all
       session.delete :user_id 
       cookies.delete :user_id 
       cookies.delete :trend

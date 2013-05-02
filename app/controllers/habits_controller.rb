@@ -58,7 +58,7 @@ class HabitsController < ApplicationController
     @habit = Habit.find(params[:undo][:habit])
     @habit_user = HabitsUser.where('user_id = ? AND habit_id=?', current_user_id, @habit).last
     @habit_user.delete
-    flash[:notice] = "#{@habit.name} removed!"
+    flash[:notice] = "last #{@habit.name} removed!"
     redirect_to(:action => 'entry')
   end
 
