@@ -185,3 +185,16 @@
   width: 95%;
   margin: 0 auto 0 auto;
 }
+
+
+.notice {
+  font-size: 180%;
+}
+
+.error {
+  font-size: 180%;
+}
+
+.alert {
+  font-size: 180%;
+}
