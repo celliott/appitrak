@@ -240,6 +240,10 @@ b {
   color: #cd1d1d;
 }
 
+.hide {
+  display: none;
+}
+
 /* page content */
 
 #main_content {
@@ -390,8 +394,26 @@ b {
   margin: -5px 0 20px 0;
 }
 
-.hide {
-  display: none;
+#privacy_wrap {
+  width: 100%;
+  margin: 0 auto 0 auto;
+}  
+#privacy {
+  width: 55%;
+  margin: 40px auto 0 auto;
+}
+
+#privacy h2 {
+  text-align: center;
+  margin: 0 0 40px 0;
+}
+  
+#privacy_body {
+  width: 600px;
+}
+
+#privacy_body p {
+  line-height: 18px;
 }
 
 /* inputs and buttons */

@@ -4,7 +4,6 @@
     <%= render(:partial => 'form', :locals => {:f => f} ) %>
     <div class="form-buttons">
       <%= submit_tag "create account", :class=> "button" %>
-      
       <% end %>
     </div>
     <%= link_to "cancel", 
@@ -13,3 +12,8 @@
 	      :class => "button"
 	  %>
 </div>
+
+    <%= link_to "privacy policy", 
+      {:controller => 'privacy'}, 
+      id: "privacy_signup" 
+    %>
