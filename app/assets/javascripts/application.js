@@ -70,6 +70,12 @@ $(document).ready(function() {
       window.location = $(this).attr("href");
     }
   });
+  
+  // disallows cut and paste into email confirmation on delete account page
+  $('#email_delete_user').bind("cut copy paste",function(e) {
+      e.preventDefault();
+  });
+  
 });
 
 // funcion to fadout flash message
