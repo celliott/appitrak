@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Appitrak::Application.load_tasks
+Habitrak::Application.load_tasks
