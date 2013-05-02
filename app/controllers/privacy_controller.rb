@@ -1,7 +1,11 @@
 class PrivacyController < ApplicationController
       
    def index
-     show_public_menu
+	   if current_user_id
+	     show_menu
+	   else
+	     show_public_menu
+	   end  
    end
 
    
