@@ -6,8 +6,8 @@ $(document).ready(function() {
 	  element: 'habit_chart',
 	  data: [
 	    <% @start_date.upto(@end_date).each do |date| %>
-	      <% start_date = date.to_datetime.change(:offset => "00:00:00 +0000") %>
-	      <% end_date = start_date.tomorrow%>
+	      <% start_date = date.change(:offset => "-04:00:00 +0000").to_datetime %>
+	      <% end_date = start_date.tomorrow %>
       	{ d: '<%= start_date.to_date%>',
         <% @habits.each do |habit| %>
         <% @habit_types = UsersHabit.where('user_id=? AND habit_id=?', @current_user_id, habit.id).count %>
