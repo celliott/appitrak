@@ -17,7 +17,7 @@
 	  <%= form_for(:undo, :url => {:action => 'undo'}) do |f| %>
 	    <%= f.hidden_field :habit, :value => habit.id %>	  
 	    <div class="undo_buttons">
-	      <%= submit_tag "undo #{habit.name}", :class=> "undo_hide #{habit.name}", :id=> "undo" %>
+	      <%= submit_tag "undo last #{habit.name}", :class=> "undo_hide #{habit.name}", :id=> "undo" %>
 	    </div>
 	  <% end %>
 	<% end %> 
