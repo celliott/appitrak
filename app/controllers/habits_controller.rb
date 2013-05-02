@@ -52,6 +52,15 @@ class HabitsController < ApplicationController
     flash[:notice] = "#{@habit.name} recorded!"
     redirect_to(:action => 'entry')
   end
+  
+  def undo
+    @user = User.find(current_user_id)
+    @habit = Habit.find(params[:undo][:habit])
+    @habit_user = HabitsUser.where('user_id = ? AND habit_id=?', current_user_id, @habit).last
+    @habit_user.delete
+    flash[:notice] = "#{@habit.name} removed!"
+    redirect_to(:action => 'entry')
+  end
 
   def destroy
     Habit.find(params[:id]).destroy

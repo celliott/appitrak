@@ -5,3 +5,7 @@
 $(document).ready ->
   $('#charts').click()
   $('#habit_types').click()
+  habit_undo = $("#flashMessage").find("p").text()
+  if(habit_undo.indexOf("recorded!") >= 0)
+    habit_undo = habit_undo.replace(/(\w+).*/,"$1")
+    $("."+habit_undo).removeClass('undo_hide')

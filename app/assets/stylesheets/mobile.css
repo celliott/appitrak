@@ -102,6 +102,17 @@
 	border-radius: 12px;
 }
 
+#undo {
+  font-weight:600;
+  font-size: 180%;
+  text-align: center;
+	padding: 12px 0 10px 0;
+	margin: 0 auto 15px auto;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+}
+
 #delete_account {
   font-weight:600;
   font-size: 180%;
