@@ -395,11 +395,11 @@ b {
 }
 
 #privacy_wrap {
-  width: 100%;
-  margin: 0 auto 0 auto;
+  width: 600px;
+  margin: 20px auto 0 auto;
 }  
 #privacy {
-  width: 55%;
+  width: 100%;
   margin: 40px auto 0 auto;
 }
 
@@ -407,11 +407,12 @@ b {
   text-align: center;
   margin: 0 0 40px 0;
 }
-  
-#privacy_body {
-  width: 600px;
-}
 
+#privacy_body {
+  width: 100%;
+  margin: 60px auto 0 auto;
+}
+  
 #privacy_body p {
   line-height: 18px;
 }
