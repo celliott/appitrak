@@ -36,22 +36,24 @@
   typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
   b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
   mixpanel.init("afa3bd00842e792b4c50d3ad36b7b611");</script><!-- end Mixpanel -->
-  
-  <script type=”text/javascript”>
-  $("#log_in").click(function() {
-      mixpanel.track("log in button clicked"); 
-  });
-  $("#habit_entered").click(function() {
-      mixpanel.track("habit entered"); 
-  });
 
-  $("#undo").click(function() {
-      mixpanel.track("habit undone"); 
+<script type="text/javascript">
+<% if @user %>
+  mixpanel.identify("<%= @user.email %>");
+
+  mixpanel.people.set({
+    "$email": "<%= @user.email %>",
+    "$last_login": new Date()
   });
-  mixpanel.track("it works");
-  </script>
+<% end %>  
+  mixpanel.track_forms(".habit_entered", "habit entered");
+  mixpanel.track_forms(".habit_undone", "habit undone");
+  mixpanel.track_forms(".logged_in", "user logged in");
   
+</script>
+
 </head>
+  
 <body>
 
 <%= link_to(root_url) do%>

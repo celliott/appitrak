@@ -3,7 +3,7 @@
     <h3>click a button to record a habit</h3>
   </div>
 <% @habits.each do |habit| %>
-  <%= form_for(:add, :url => {:action => 'add'}) do |f| %>
+  <%= form_for(:add, :url => {:action => 'add'}, :html => { :class => "habit_entered" }) do |f| %>
     <%= f.hidden_field :habit, :value => habit.id %>
     <%= f.hidden_field :habit_time, :value => Time.now.in_time_zone(cookies[:time_stamp]).to_datetime %>
   
@@ -14,7 +14,7 @@
 <% end %> 
 <div id="undo_button">
 	<% @habits.each do |habit| %>
-	  <%= form_for(:undo, :url => {:action => 'undo'}) do |f| %>
+	  <%= form_for(:undo, :url => {:action => 'undo'}, :html => { :class => "habit_undone" }) do |f| %>
 	    <%= f.hidden_field :habit, :value => habit.id %>	  
 	    <div class="undo_buttons">
 	      <%= submit_tag "undo last #{habit.name}", :class=> "undo_hide #{habit.name}", :id=> "undo" %>

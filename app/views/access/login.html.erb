@@ -1,5 +1,5 @@
 <div class="login">
-  <%= form_tag(:action => 'attempt_login', :authenticity_token => false) do %>
+  <%= form_for(:attempt_login, :url => {:action => 'attempt_login'}, :html => { :class => "logged_in" }) do %>
    <div><%= text_field_tag 'email', nil, :placeholder => 'email' %></div>
    <div><%= password_field_tag 'pass', nil, :placeholder => 'password' %></div>
    <div class="checkbox">
