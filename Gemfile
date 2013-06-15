@@ -40,4 +40,4 @@ group :development do
   gem 'meta_request'
 end
 
-gem 'newrelic_rpm'
+# gem 'newrelic_rpm'
