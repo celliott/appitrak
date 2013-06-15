@@ -332,6 +332,20 @@ b {
   margin: 95px 0 0 0;
 }
 
+.demo_login {
+	margin: 30px 0 0 0 ;
+	text-align:center;
+	line-height:15px;
+}
+
+.demo_login p {
+	cursor:text;
+}
+
+.demo_login b {
+	cursor:text;
+}
+
 .signup {
   min-height: 100%;
   width: 100%;
