@@ -1,21 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Analytical Init: KissMetrics -->
-  <script type="text/javascript">
-    var _kmq = _kmq || [];
-    var _kmk = _kmk || '19cb834eaac876659b86afeb97badd5a9e29faff';
-    function _kms(u){
-      setTimeout(function(){
-        var d = document, f = d.getElementsByTagName('script')[0],
-        s = d.createElement('script');
-        s.type = 'text/javascript'; s.async = true; s.src = u;
-        f.parentNode.insertBefore(s, f);
-      }, 1);
-    }
-    _kms('//i.kissmetrics.com/i.js');
-    _kms('//doug1izaerwt3.cloudfront.net/' + _kmk + '.1.js');
-  </script>
   <title>habitrak</title>
   <%= stylesheet_link_tag    "reset" %>
   <%= stylesheet_link_tag    "application" %>
@@ -53,21 +38,35 @@
   b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
   mixpanel.init("afa3bd00842e792b4c50d3ad36b7b611");</script>
   <!-- end Mixpanel -->
+  <script type="text/javascript">
+  <% if @user %>
+    mixpanel.identify("<%= @user.email %>");
 
-<script type="text/javascript">
-<% if @user %>
-  mixpanel.identify("<%= @user.email %>");
+    mixpanel.people.set({
+      "$email": "<%= @user.email %>",
+      "$last_login": new Date()
+    });
+  <% end %>  
+    mixpanel.track_forms(".habit_entered", "habit entered");
+    mixpanel.track_forms(".habit_undone", "habit undone");
+    mixpanel.track_forms(".logged_in", "user logged in");
+  </script>
 
-  mixpanel.people.set({
-    "$email": "<%= @user.email %>",
-    "$last_login": new Date()
-  });
-<% end %>  
-  mixpanel.track_forms(".habit_entered", "habit entered");
-  mixpanel.track_forms(".habit_undone", "habit undone");
-  mixpanel.track_forms(".logged_in", "user logged in");
-  
-</script>
+  <!-- Analytical Init: KissMetrics -->
+  <script type="text/javascript">
+    var _kmq = _kmq || [];
+    var _kmk = _kmk || '19cb834eaac876659b86afeb97badd5a9e29faff';
+    function _kms(u){
+      setTimeout(function(){
+        var d = document, f = d.getElementsByTagName('script')[0],
+        s = d.createElement('script');
+        s.type = 'text/javascript'; s.async = true; s.src = u;
+        f.parentNode.insertBefore(s, f);
+      }, 1);
+    }
+    _kms('//i.kissmetrics.com/i.js');
+    _kms('//doug1izaerwt3.cloudfront.net/' + _kmk + '.1.js');
+  </script>
 
 </head>
   
