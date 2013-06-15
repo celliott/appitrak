@@ -51,9 +51,14 @@
   mixpanel.track_forms(".logged_in", "user logged in");
   
 </script>
+
+</head>
+  
+<body>
+<!-- Analytical Init: KissMetrics -->
 <script type="text/javascript">
   var _kmq = _kmq || [];
-  var _kmk = _kmk || '5a9b7b0d39b5461e45e43555c1ec61c506348ad6';
+  var _kmk = _kmk || '3ea474ddeab5a924894ec2a70f93397c897e6ad9';
   function _kms(u){
     setTimeout(function(){
       var d = document, f = d.getElementsByTagName('script')[0],
@@ -65,9 +70,6 @@
   _kms('//i.kissmetrics.com/i.js');
   _kms('//doug1izaerwt3.cloudfront.net/' + _kmk + '.1.js');
 </script>
-</head>
-  
-<body>
 
 <%= link_to(root_url) do%>
 <div class="header"><p>habitrak</p></div>
