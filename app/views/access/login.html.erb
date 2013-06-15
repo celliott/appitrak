@@ -6,7 +6,7 @@
    <%= check_box 'remember_me', 'remember', :checked => true, :id => 'remember_me' %>
      <label for="remember_me">remember me</label>  
    </div>
-   <div><%= submit_tag "log in", :class=> "button" %>
+   <div><%= submit_tag "log in", :class=> "button", :id=> "log_in" %>
         <% end %>
    </div>
    <%= link_to "forgot password", 
@@ -21,3 +21,7 @@
   <br/>
   <p><b>demo password:</b> habitrak</p>
 </div>
+
+$("#log_in").click(function() {
+    mixpanel.track("log in button clicked"); 
+});

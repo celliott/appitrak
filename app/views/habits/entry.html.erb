@@ -8,7 +8,7 @@
     <%= f.hidden_field :habit_time, :value => Time.now.in_time_zone(cookies[:time_stamp]).to_datetime %>
   
     <div class="form-buttons">
-      <%= submit_tag habit.name, :class=> "button"%>
+      <%= submit_tag habit.name, :class=> "button" , :id=> "habit_entered"%>
     </div>
   <% end %>
 <% end %> 
@@ -23,3 +23,12 @@
 	<% end %> 
 	</div>  
 </div>
+
+
+$("#habit_entered").click(function() {
+    mixpanel.track("habit entered"); 
+});
+
+$("#undo").click(function() {
+    mixpanel.track("habit undone"); 
+});

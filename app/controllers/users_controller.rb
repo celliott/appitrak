@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       UserMailer.registration_confirmation(@user).deliver
-      session[:user_id] = @user.id
+      session[:user_id] = @user.id      
       redirect_to habits_url 
     else
       render("new")
