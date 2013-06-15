@@ -37,6 +37,20 @@
   b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
   mixpanel.init("afa3bd00842e792b4c50d3ad36b7b611");</script><!-- end Mixpanel -->
   
+  <script type=”text/javascript”>
+  $("#log_in").click(function() {
+      mixpanel.track("log in button clicked"); 
+  });
+  $("#habit_entered").click(function() {
+      mixpanel.track("habit entered"); 
+  });
+
+  $("#undo").click(function() {
+      mixpanel.track("habit undone"); 
+  });
+  mixpanel.track("it works");
+  </script>
+  
 </head>
 <body>
 
